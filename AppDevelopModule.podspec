@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 iOS App开发工具集合,以Swift为主。
                        DESC
 
-  s.homepage         = 'https://github.com/王立/Wlw'
+  s.homepage         = 'https://github.com/1253463220/AppDevelopModule'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '王立' => '1253463220@qq.com' }
-  s.source           = { :git => 'https://github.com/王立/Wlw.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/1253463220/AppDevelopModule.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
