@@ -18,13 +18,15 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'AppDevelopModule', :git => 'https://github.com/1253463220/AppDevelopModule.git'
+```
 如果只需要Core,可以用下面方式引用:
+```ruby
 pod 'AppDevelopModule/Core', :git => 'https://github.com/1253463220/AppDevelopModule.git'
 ```
 
 ## Author
 
-王立, ssi-wanglw@dfmc.com.cn
+
 
 ## License
 
