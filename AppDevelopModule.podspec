@@ -29,7 +29,7 @@ iOS App开发工具集合,以Swift为主。
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.default_subspecs = 'Core','Picture','Hud'
+  s.default_subspecs = 'Core','Picture','Hud','Algorithms'
   s.swift_version = ['5.0', '4.2', '4.0']
   s.frameworks = 'Foundation','UIKit'
 #  s.source_files = 'AppDevelopModule/**/*'
@@ -52,6 +52,9 @@ iOS App开发工具集合,以Swift为主。
     ss.dependency 'NVActivityIndicatorView'
   end
   
+  s.subspec 'Algorithms' do |ss|
+    ss.source_files = 'AppDevelopModule/Algorithms/**/*'
+  end
   
   
   # s.resource_bundles = {
