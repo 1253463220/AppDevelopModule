@@ -1,4 +1,4 @@
-# Wlw
+# AppDevelopModule
 
 [![CI Status](https://img.shields.io/travis/王立/Wlw.svg?style=flat)](https://travis-ci.org/王立/Wlw)
 [![Version](https://img.shields.io/cocoapods/v/Wlw.svg?style=flat)](https://cocoapods.org/pods/Wlw)
@@ -17,7 +17,9 @@ Wlw is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Wlw'
+pod 'AppDevelopModule', :git => 'https://github.com/1253463220/AppDevelopModule.git'
+如果只需要Core,可以用下面方式引用:
+pod 'AppDevelopModule/Core', :git => 'https://github.com/1253463220/AppDevelopModule.git'
 ```
 
 ## Author
