@@ -1,0 +1,82 @@
+PODS:
+  - AppDevelopModule (1.0.0):
+    - AppDevelopModule/Core (= 1.0.0)
+    - AppDevelopModule/Hud (= 1.0.0)
+    - AppDevelopModule/Picture (= 1.0.0)
+  - AppDevelopModule/Core (1.0.0):
+    - SwifterSwift
+  - AppDevelopModule/Hud (1.0.0):
+    - MBProgressHUD
+    - NVActivityIndicatorView
+    - SVProgressHUD
+  - AppDevelopModule/Picture (1.0.0):
+    - JXPhotoBrowser
+    - Kingfisher
+  - JXPhotoBrowser (3.1.2)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
+  - MBProgressHUD (1.2.0)
+  - NVActivityIndicatorView (5.0.1):
+    - NVActivityIndicatorView/Base (= 5.0.1)
+  - NVActivityIndicatorView/Base (5.0.1)
+  - SVProgressHUD (2.2.5)
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
+
+DEPENDENCIES:
+  - AppDevelopModule (from `https://github.com/1253463220/AppDevelopModule.git`)
+
+SPEC REPOS:
+  trunk:
+    - JXPhotoBrowser
+    - Kingfisher
+    - MBProgressHUD
+    - NVActivityIndicatorView
+    - SVProgressHUD
+    - SwifterSwift
+
+EXTERNAL SOURCES:
+  AppDevelopModule:
+    :git: https://github.com/1253463220/AppDevelopModule.git
+
+CHECKOUT OPTIONS:
+  AppDevelopModule:
+    :commit: fdc0d5fded1c910118cf04caf40e59d18e043797
+    :git: https://github.com/1253463220/AppDevelopModule.git
+
+SPEC CHECKSUMS:
+  AppDevelopModule: 431178d7c66e9ce647f01b1e4b2fa8c16020fe10
+  JXPhotoBrowser: 7f0bc11f02fbc84ae06829f922f32ce822aa9661
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  NVActivityIndicatorView: 738e843cb8924e9e4fc3e559d0728031624bf860
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+
+PODFILE CHECKSUM: df5248817c1d29523bb49cffd920b48d7332b1e5
+
+COCOAPODS: 1.9.3
