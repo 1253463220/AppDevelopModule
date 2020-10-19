@@ -24,8 +24,8 @@ public struct VMSize {
             return statusbarHeight == 20 ? 64 : 88
         }
     }
-    //tabbar高度
-    public static var tabbarHeight : CGFloat{
+    //(tabbar+bottomSafeArea)高度
+    public static var vcBottomHeight : CGFloat{
         get{
             return statusbarHeight == 20 ? 49 : 83
         }
@@ -70,52 +70,54 @@ public struct VMJudge {
     }
 }
 
+// MARK: - 延时函数
+public typealias DelayTask = (_ cancel : Bool) -> Void
+/// 延迟一定时间执行一个闭包
+///
+/// - Parameters:
+///   - time: 延迟时间
+///   - task: 执行的闭包
+/// - Returns: 返回一个任务(用于取消执行)
+@discardableResult
+public func delay(_ time: TimeInterval, task: @escaping ()->()) ->  DelayTask? {
+    
+    func dispatch_later(block: @escaping ()->()) {
+        let t = DispatchTime.now() + time
+        DispatchQueue.main.asyncAfter(deadline: t, execute: block)
+    }
+    var closure: (()->Void)? = task
+    var result: DelayTask?
+    
+    let delayedClosure: DelayTask = { cancel in
+        if let internalClosure = closure {
+            if (cancel == false) {
+                DispatchQueue.main.async(execute: internalClosure)
+            }
+        }
+        closure = nil
+        result = nil
+    }
+    
+    result = delayedClosure
+    
+    dispatch_later {
+        if let delayedClosure = result {
+            delayedClosure(false)
+        }
+    }
+    return result
+}
+
+/// 取消任务
+///
+/// - Parameter task: 执行的任务
+public func delayCancle(_ task: DelayTask?) {
+    task?(true)
+}
+
+
 public struct VMFunc {
-    // MARK: - 延时函数
-    public typealias DelayTask = (_ cancel : Bool) -> Void
-
-    /// 延迟一定时间执行一个闭包
-    ///
-    /// - Parameters:
-    ///   - time: 延迟时间
-    ///   - task: 执行的闭包
-    /// - Returns: 返回一个任务(用于取消执行)
-    @discardableResult
-    public func delay(_ time: TimeInterval, task: @escaping ()->()) ->  DelayTask? {
-        
-        func dispatch_later(block: @escaping ()->()) {
-            let t = DispatchTime.now() + time
-            DispatchQueue.main.asyncAfter(deadline: t, execute: block)
-        }
-        var closure: (()->Void)? = task
-        var result: DelayTask?
-        
-        let delayedClosure: DelayTask = { cancel in
-            if let internalClosure = closure {
-                if (cancel == false) {
-                    DispatchQueue.main.async(execute: internalClosure)
-                }
-            }
-            closure = nil
-            result = nil
-        }
-        
-        result = delayedClosure
-        
-        dispatch_later {
-            if let delayedClosure = result {
-                delayedClosure(false)
-            }
-        }
-        return result
-    }
-
-    /// 取消任务
-    ///
-    /// - Parameter task: 执行的任务
-    public func delayCancle(_ task: DelayTask?) {
-        task?(true)
-    }
+    
 }
 
 extension VMFunc{
