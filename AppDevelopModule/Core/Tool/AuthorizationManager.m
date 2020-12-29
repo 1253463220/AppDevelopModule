@@ -7,78 +7,111 @@
 //
 
 #import "AuthorizationManager.h"
-#import <Photos/Photos.h>
+#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import <MapKit/MapKit.h>
+#import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+@import CoreTelephony;
+#import <UserNotifications/UserNotifications.h>
+#import <CoreLocation/CoreLocation.h>
+#import <AddressBook/AddressBook.h>
+#import <Contacts/Contacts.h>
+#import <EventKit/EventKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+
+
+//手机系统版本号
+#define SYSTEMVERSION [[[UIDevice currentDevice]systemVersion]floatValue]
 @implementation AuthorizationManager
-
-+(instancetype)sharedAuthorizationManager
-{
-    static AuthorizationManager *t = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        t = [[AuthorizationManager alloc] init];
-    });
-    return t;
-}
-
 
 +(void)checkAuthorization:(AuthorizationType)authorizationType passblock:(dispatch_block_t)passblock;
 {
-    if (authorizationType == 1){
-        
-        if ([self authorizationForPhoto]) {
+    if (authorizationType == AuthorizationTypePhotoLibrary){
+        if ([self authorizationForPhotoLibrary]) {
             if (passblock) {
                 passblock();
             }
         }else{
-            [self alertAuthorizationFor:authorizationType];
+            [self alertTitle:@"访问照片权限被禁用" description:@"照片"];
         }
-    }else if (authorizationType == 2) {
+    }else if (authorizationType == AuthorizationTypeCamera) {
         
         if([self authorizationForCamera]){
             if (passblock) {
                 passblock();
             }
         }else{
-            [self alertAuthorizationFor:authorizationType];
+            [self alertTitle:@"访问相机权限被禁用" description:@"相机"];
         }
-    }else if(authorizationType == 3){
-        if ([self authorizationForPhoto]&&[self authorizationForCamera]) {
-            if (passblock) {
-                passblock();
-            }
-        }else{
-            [self alertAuthorizationFor:authorizationType];
-        }
-    }else if (authorizationType == 4){
+    }else if (authorizationType == AuthorizationTypeLocation){
         if ([self authorizationForLocation]) {
             if (passblock) {
                 passblock();
             }
         }else{
-            [self alertAuthorizationFor:authorizationType];
+            [self alertTitle:@"访问位置权限被禁用" description:@"位置"];
         }
-    }else if (authorizationType == 8){
+    }else if (authorizationType == AuthorizationTypeMicrophone){
         if ([self authorizationForMicrophone]) {
             if (passblock) {
                 passblock();
             }
         }else{
-            [self alertAuthorizationFor:authorizationType];
+            [self alertTitle:@"访问麦克风权限被禁用" description:@"麦克风"];
         }
-    }else if (authorizationType == 10){
-        if ([self authorizationForMicrophone]&&[self authorizationForCamera]) {
+    }else if (authorizationType == AuthorizationTypeContacts){
+        if ([self authorizationForContacts]) {
             if (passblock) {
                 passblock();
             }
         }else{
-            [self alertAuthorizationFor:authorizationType];
+            [self alertTitle:@"访问联系人权限被禁用" description:@"联系人"];
+        }
+    }else if (authorizationType == AuthorizationTypeBlueTooth){
+        if ([self authorizationForBlueTooth]) {
+            if (passblock) {
+                passblock();
+            }
+        }else{
+            [self alertTitle:@"访问蓝牙权限被禁用" description:@"蓝牙"];
+        }
+    }else if (authorizationType == AuthorizationTypeNotification){
+        if ([self authorizationForNotification]) {
+            if (passblock) {
+                passblock();
+            }
+        }else{
+            [self alertTitle:@"通知权限被禁用" description:@"通知"];
+        }
+    }else if (authorizationType == AuthorizationTypeNetWork){
+        if ([self authorizationForNetWork]) {
+            if (passblock) {
+                passblock();
+            }
+        }else{
+            [self alertTitle:@"访问无线数据权限被禁用" description:@"无线数据"];
+        }
+    }else if (authorizationType == AuthorizationTypeCalendar){
+        if ([self authorizationForCalendar]) {
+            if (passblock) {
+                passblock();
+            }
+        }else{
+            [self alertTitle:@"访问日历权限被禁用" description:@"日历"];
+        }
+    }else if (authorizationType == AuthorizationTypeReminder){
+        if ([self authorizationForReminder]) {
+            if (passblock) {
+                passblock();
+            }
+        }else{
+            [self alertTitle:@"访问备忘录权限被禁用" description:@"备忘录"];
         }
     }
+    
 }
 #pragma mark - 相册权限
-+(BOOL)authorizationForPhoto
++(BOOL)authorizationForPhotoLibrary
 {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
     if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted || status == PHAuthorizationStatusNotDetermined) {
@@ -117,44 +150,82 @@
     }
     return YES;
 }
+#pragma mark - 联系人权限
++ (BOOL)authorizationForContacts{
+    if (SYSTEMVERSION >= 9.0) {
+        CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        if (status == CNAuthorizationStatusDenied || status == CNAuthorizationStatusRestricted){
+            return NO;
+        }
+    }else{
+        ABAuthorizationStatus ABstatus = ABAddressBookGetAuthorizationStatus();
+        if (ABstatus == kABAuthorizationStatusDenied || ABstatus == kABAuthorizationStatusRestricted){
+            return NO;
+        }
+    }
+    return YES;
+}
+#pragma mark - 蓝牙权限
++ (BOOL)authorizationForBlueTooth{
+    CBCentralManager *manager = [[CBCentralManager alloc] initWithDelegate:nil queue:nil];
+    switch (manager.state) {
+        case CBManagerStatePoweredOn:
+            return true;
+            break;
+        default:
+            return false;
+            break;
+    }
+    return false;
+}
+#pragma mark - 推送权限
++ (BOOL)authorizationForNotification{
+    if (SYSTEMVERSION>=8.0f){
+        UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
+        if (UIUserNotificationTypeNone == setting.types){
+            return NO;
+        }
+    }else{
+        UIRemoteNotificationType type = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+        if(UIRemoteNotificationTypeNone == type){
+            return NO;
+        }
+    }
+    return YES;
+}
+#pragma mark - 联网权限
++ (BOOL)authorizationForNetWork{
+    CTCellularData *cellularData = [[CTCellularData alloc]init];
+    CTCellularDataRestrictedState state = cellularData.restrictedState;
+    if (state == kCTCellularDataRestricted) {
+        return NO;
+    }
+    return YES;
+}
+#pragma mark - 日历权限
++ (BOOL)authorizationForCalendar{
+    EKAuthorizationStatus EKstatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+    if (EKstatus == EKAuthorizationStatusDenied || EKstatus == EKAuthorizationStatusRestricted){
+        return NO;
+    }
+    return YES;
+}
+#pragma mark - 备忘录权限
++ (BOOL)authorizationForReminder{
+    EKAuthorizationStatus EKstatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
+    if (EKstatus == EKAuthorizationStatusDenied || EKstatus == EKAuthorizationStatusRestricted){
+        return NO;
+    }
+    return YES;
+}
 
 
-+(void)alertAuthorizationFor:(AuthorizationType)authorizationType
-{
-    NSString *tips;
-    NSString *title;
+
++ (void)alertTitle:(NSString *)title description:(NSString *)description{
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-    if(authorizationType == 1)
-    {
-        title = @"访问照片权限被禁用";
-        tips = [NSString stringWithFormat:@"请在iPhone的“设置”中允许\"%@\"访问你的手机照片",app_Name];
-    }
-    else if (authorizationType == 2)
-    {
-        title = @"访问相机权限被禁用";
-        tips = [NSString stringWithFormat:@"请在iPhone的“设置”中允许\"%@\"访问你的手机相机",app_Name];
-    }
-    else if (authorizationType == 3)
-    {
-        title = @"访问相机或相册权限被禁用";
-        tips = [NSString stringWithFormat:@"请在iPhone的“设置”中允许\"%@\"访问你的手机相机及相册",app_Name];
-    }
-    else if (authorizationType == 4)
-    {
-        title = @"定位权限被禁用";
-        tips = [NSString stringWithFormat:@"请在iPhone的“设置”中允许\"%@\"使用定位功能",app_Name];
-    }
-    else if (authorizationType == 8)
-    {
-        title = @"麦克风权限被禁用";
-        tips = [NSString stringWithFormat:@"请在iPhone的“设置”中允许\"%@\"使用麦克风",app_Name];
-    }
-    else if (authorizationType == 10)
-    {
-        title = @"麦克风或相机权限被禁用";
-        tips = [NSString stringWithFormat:@"请在iPhone的“设置”中允许\"%@\"使用麦克风及相机",app_Name];
-    }
+    
+    NSString *tips = [NSString stringWithFormat:@"请在iPhone的“设置”中允许\"%@\"访问您的%@",app_Name,description];
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:tips preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

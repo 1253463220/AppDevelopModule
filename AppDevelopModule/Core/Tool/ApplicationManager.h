@@ -16,6 +16,8 @@
 +(instancetype)sharedApplicationManager;
 /**获取app名字*/
 +(NSString *)displayName;
+/**获取版本号*/
++(NSString *)appVersion;
 /**禁止手机休眠*/
 +(void)forbidMobileSleep;
 /**打开手电筒*/
@@ -36,5 +38,9 @@
 +(void)removeAllUserDefaults;
 /**获取当前控制器*/
 + (UIViewController *)currentVC;
+/**获取keyWindow*/
++ (UIWindow *)keyWindow;
+/**获取最上层UIWindow*/
++ (UIWindow *)topWindow;
 
 @end

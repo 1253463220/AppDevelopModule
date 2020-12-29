@@ -19,21 +19,21 @@ public struct VMSize {
     //状态栏高度
     public static let statusbarHeight = UIApplication.shared.statusBarFrame.size.height
     //navigtionbar高度
-    public static var naviHeight : CGFloat{
+    static var topSafeAreaHeight : CGFloat{
         get{
-            return statusbarHeight == 20 ? 64 : 88
+            return statusbarHeight + 44
         }
     }
-    //(tabbar+bottomSafeArea)高度
-    public static var vcBottomHeight : CGFloat{
-        get{
-            return statusbarHeight == 20 ? 49 : 83
-        }
-    }
-    //bottom safeAreaHeight
-    public static var bottomSafeAreaHeight : CGFloat{
+    //bottom iPhoneX后底部多出的高度
+    static var bottomEmptyHeight : CGFloat{
         get{
             return statusbarHeight == 20 ? 0 : 34
+        }
+    }
+    //tabbar+底部 高度
+    static var bottomSafeAreaHeight : CGFloat{
+        get{
+            return bottomEmptyHeight + 49
         }
     }
 }

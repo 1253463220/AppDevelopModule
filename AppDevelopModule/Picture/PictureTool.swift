@@ -30,7 +30,6 @@ public struct PictureTool{
         var data : Data? = nil
         if let url = URL(string: urlStr){
             let path = ImageCache.default.cachePath(forKey: url.cacheKey)
-            KingfisherManager
             data = try? Data.init(contentsOf: URL(fileURLWithPath: path))
         }
         return data == nil ? nil : UIImage(data: data!)

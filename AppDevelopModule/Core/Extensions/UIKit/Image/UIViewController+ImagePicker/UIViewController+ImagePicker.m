@@ -188,17 +188,6 @@ static void *isCut =  @"isCut"; //截取
     }
     NSData *imageData = UIImageJPEGRepresentation(editedimage, 1);//首次进行压缩
     UIImage *image = [UIImage imageWithData:imageData];
-    //图片限制大小不超过 1M     CGFloat  kb =   data.lenth / 1000;  计算kb方法 os 按照千进制计算
-//    while (imageData.length/1000 > 1024) {
-//        imageData = UIImageJPEGRepresentation(image, 0.5);
-//        image = [UIImage imageWithData:imageData];
-//    }
-    
-    if (imageData.length/1000 > 1024) {
-        NSLog(@"图片超过1M 压缩");
-        imageData = UIImageJPEGRepresentation(image, 0.1);
-        image = [UIImage imageWithData:imageData];
-    }
     self.completionHandler(imageData, image);
 }
 

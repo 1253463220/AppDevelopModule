@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
+public enum GradientColorDirection {
+    case leftright
+    case topdown
+}
+
 // 图片
 extension UIImage{
-    public enum GradientColorDirection {
-        case leftright
-        case topdown
-    }
     ///纯色图片
     public static func colorImage(_ color:UIColor,_ size:CGSize) -> UIImage{
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -54,4 +55,27 @@ extension UIImage{
         UIGraphicsEndImageContext()
         return image ?? UIImage()
     }
+}
+
+
+
+
+extension UIImage{
+    
+    public func addWater(image:UIImage?,text:String,imageRect:CGRect,textRect:CGRect,textAttribute:[NSAttributedString.Key:Any]) -> UIImage{
+        
+        UIGraphicsBeginImageContext(self.size)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        if image != nil {
+            image!.draw(in: imageRect)
+        }
+        NSString(string: text).draw(in: textRect, withAttributes: textAttribute)
+        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return finalImage ?? self
+        
+    }
+    
+    
+
 }

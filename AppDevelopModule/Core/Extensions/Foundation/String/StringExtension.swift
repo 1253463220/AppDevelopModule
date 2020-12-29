@@ -11,22 +11,22 @@ import UIKit
 
 ///生成沙盒路径
 extension String{
-    public func docDir() -> String {
+    public func toDocDir() -> String {
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         return  (path != nil) ? path! + "/\(self)" : ""
     }
     
-    public func tempDir() -> String{
+    public func toTempDir() -> String{
         let path = NSTemporaryDirectory()
         return path + "/\(self)"
     }
     
-    public func libDir() -> String {
+    public func toLibDir() -> String {
         let path = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first
         return  (path != nil) ? path! + "/\(self)" : ""
     }
     
-    public func cacheDir() -> String {
+    public func toCacheDir() -> String {
         let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first
         return  (path != nil) ? path! + "/\(self)" : ""
     }
@@ -111,13 +111,13 @@ extension String{
 }
 
 extension String{
-    public func strWidth(fontSize: CGFloat, height: CGFloat) -> CGFloat {
+    public func width(fontSize: CGFloat, height: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.width)
     }
     
-    public func strHeight(fontSize: CGFloat, width: CGFloat) -> CGFloat {
+    public func height(fontSize: CGFloat, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.height)

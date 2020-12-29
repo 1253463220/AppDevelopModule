@@ -11,7 +11,8 @@ import CommonCrypto
 
 //Data类型md5
 extension Data {
-    func getMD5String() -> String {
+    
+    var md5Str : String{
         var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
         _ = withUnsafeBytes { (bytes) in
             CC_MD5(bytes, CC_LONG(count), &digest)

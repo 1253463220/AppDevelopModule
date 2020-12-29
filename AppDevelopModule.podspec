@@ -29,7 +29,7 @@ iOS App开发工具集合,以Swift为主。
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.default_subspecs = 'Core','Picture','Hud'
+  s.default_subspecs = 'Core','Picture','Hud','Network','Map','Crypto'
   s.swift_version = ['5.0']
   s.frameworks = 'Foundation','UIKit'
 #  s.source_files = 'AppDevelopModule/**/*'
@@ -43,6 +43,7 @@ iOS App开发工具集合,以Swift为主。
     ss.source_files = 'AppDevelopModule/Picture/**/*'
     ss.dependency 'JXPhotoBrowser'
     ss.dependency 'Kingfisher'
+    ss.dependency 'TZImagePickerController'
   end
   
   s.subspec 'Hud' do |ss|
@@ -54,6 +55,21 @@ iOS App开发工具集合,以Swift为主。
   
   s.subspec 'Algorithms' do |ss|
     ss.source_files = 'AppDevelopModule/Algorithms/**/*'
+  end
+  
+  s.subspec 'Network' do |ss|
+    ss.source_files = 'AppDevelopModule/Network/**/*'
+    ss.dependency 'Moya/RxSwift'
+  end
+  
+  s.subspec 'Map' do |ss|
+    ss.source_files = 'AppDevelopModule/Map/**/*'
+    
+  end
+  
+  s.subspec 'Crypto' do |ss| #加密
+    ss.source_files = 'AppDevelopModule/Crypto/**/*'
+    ss.dependency 'CryptoSwift'
   end
   
   

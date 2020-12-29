@@ -11,10 +11,6 @@ import UIKit
 
 // 给视图添加边框
 extension UIView {
-    public enum GradientColorDirection {
-        case leftright
-        case topdown
-    }
     ///加渐变色背景
     public func addGradientColorLayer(startColor:UIColor,endColor:UIColor,direction:GradientColorDirection){
         let layer = CAGradientLayer()

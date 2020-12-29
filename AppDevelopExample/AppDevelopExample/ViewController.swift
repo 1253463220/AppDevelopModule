@@ -7,18 +7,24 @@
 //
 
 import UIKit
-@_exported import ZFPlayer
+import TZImagePickerController
+import AppDevelopModule
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        AuthorizationManager.check(AuthorizationType.blueTooth) {
+            print("...")
+        }
+    }
+    
 }
 

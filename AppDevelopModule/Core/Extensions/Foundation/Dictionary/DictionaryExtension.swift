@@ -8,12 +8,13 @@
 
 import Foundation
 
-extension Dictionary where Key == String,Value == String{
-    public func reverseKeyValue()->Dictionary{
-        var dic : [String:String] = [:]
+extension Dictionary where Value : Hashable{
+
+    public var reverseKeyValue : [Value:Key]{
+        var dic : [Value:Key] = [:]
         for key in keys {
             if let value = self[key]{
-                dic.updateValue(key, forKey: value)
+                dic[value] = key
             }
         }
         return dic
