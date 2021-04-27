@@ -92,7 +92,7 @@
 +(void)gotoAppSet
 {
     if (UIApplicationOpenSettingsURLString != NULL) {
-      //  UIApplication *application = [UIApplication sharedApplication];
+        //  UIApplication *application = [UIApplication sharedApplication];
         NSURL *URL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         [self openUrl:URL];
     }
@@ -103,7 +103,7 @@
     NSString *phoneStr = [@"tel://" stringByAppendingString:phoneNum];
     NSURL *url = [NSURL URLWithString:phoneStr];
     if (url) {
-
+        
         [self openUrl:url];
     }
 }
@@ -189,5 +189,42 @@
         }
     }];
     return topWindow;
+}
+
+#pragma mark - 生成二维码
++ (UIImage *)generateQRCode:(NSString *)dataStr size:(CGSize)size{
+    // 1.创建过滤器 -- 苹果没有将这个字符封装成常量
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    // 2.过滤器恢复默认设置
+    [filter setDefaults];
+    // 3.给过滤器添加数据(正则表达式/帐号和密码) -- 通过KVC设置过滤器,只能设置NSData类型
+    NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+    [filter setValue:data forKeyPath:@"inputMessage"];
+    // 4.获取输出的二维码
+    CIImage *outputImage = [filter outputImage];
+    return [ApplicationManager createNonInterpolatedUIImageFormCIImage:outputImage withSize:size];
+}
+
++ (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGSize)size
+{
+    CGRect extent = CGRectIntegral(image.extent);
+    CGFloat scale = MIN(size.width/CGRectGetWidth(extent), size.height/CGRectGetHeight(extent));
+    
+    // 1.创建bitmap;
+    size_t width = CGRectGetWidth(extent) * scale;
+    size_t height = CGRectGetHeight(extent) * scale;
+    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
+    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
+    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
+    CGContextScaleCTM(bitmapRef, scale, scale);
+    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+    
+    // 2.保存bitmap到图片
+    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
+    CGContextRelease(bitmapRef);
+    CGImageRelease(bitmapImage);
+    return [UIImage imageWithCGImage:scaledImage];
 }
 @end

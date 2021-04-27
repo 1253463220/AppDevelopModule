@@ -42,5 +42,7 @@
 + (UIWindow *)keyWindow;
 /**获取最上层UIWindow*/
 + (UIWindow *)topWindow;
+/**生成二维码*/
++ (UIImage *)generateQRCode:(NSString *)dataStr size:(CGSize)size;
 
 @end

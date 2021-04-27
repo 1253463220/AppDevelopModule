@@ -28,49 +28,6 @@
 		81576DCF250A1EAB00D5A30C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81576DD2250A1EAB00D5A30C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81576DD4250A1EAB00D5A30C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81C7226B259B09F400A066DE /* CryptoTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTool.swift; sourceTree = "<group>"; };
-		81C7226F259B09F400A066DE /* LayoutExtensin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensin.swift; sourceTree = "<group>"; };
-		81C72272259B09F400A066DE /* DFTitleCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFTitleCellView.m; sourceTree = "<group>"; };
-		81C72273259B09F400A066DE /* DFTitleCellConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFTitleCellConfigModel.h; sourceTree = "<group>"; };
-		81C72274259B09F400A066DE /* WLVerticalAlignmentLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLVerticalAlignmentLabel.h; sourceTree = "<group>"; };
-		81C72275259B09F400A066DE /* DFTitleCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFTitleCellView.h; sourceTree = "<group>"; };
-		81C72276259B09F400A066DE /* DFTitleCellConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFTitleCellConfigModel.m; sourceTree = "<group>"; };
-		81C72277259B09F400A066DE /* WLVerticalAlignmentLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLVerticalAlignmentLabel.m; sourceTree = "<group>"; };
-		81C72279259B09F400A066DE /* icon_arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrow_right@2x.png"; sourceTree = "<group>"; };
-		81C7227A259B09F400A066DE /* KMPlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMPlaceholderTextView.swift; sourceTree = "<group>"; };
-		81C7227F259B09F400A066DE /* UIAlertController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ShowAlert.swift"; sourceTree = "<group>"; };
-		81C72282259B09F400A066DE /* UIImage+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Show.swift"; sourceTree = "<group>"; };
-		81C72284259B09F400A066DE /* UIViewController+ImagePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ImagePicker.m"; sourceTree = "<group>"; };
-		81C72285259B09F400A066DE /* UIViewController+ImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ImagePicker.h"; sourceTree = "<group>"; };
-		81C72287259B09F400A066DE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		81C72289259B09F400A066DE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		81C7228A259B09F400A066DE /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		81C7228D259B09F400A066DE /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		81C7228F259B09F400A066DE /* SwiftTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
-		81C72292259B09F400A066DE /* NumberExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
-		81C72294259B09F400A066DE /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
-		81C72296259B09F500A066DE /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
-		81C72297259B09F500A066DE /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		81C72299259B09F500A066DE /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
-		81C7229B259B09F500A066DE /* DependenceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenceOperation.swift; sourceTree = "<group>"; };
-		81C7229D259B09F500A066DE /* VideoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTool.h; sourceTree = "<group>"; };
-		81C7229E259B09F500A066DE /* AuthorizationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthorizationManager.h; sourceTree = "<group>"; };
-		81C7229F259B09F500A066DE /* AppKeychainIdentifer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppKeychainIdentifer.m; sourceTree = "<group>"; };
-		81C722A0259B09F500A066DE /* ApplicationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationManager.h; sourceTree = "<group>"; };
-		81C722A1259B09F500A066DE /* AuthorizationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthorizationManager.m; sourceTree = "<group>"; };
-		81C722A2259B09F500A066DE /* VideoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTool.m; sourceTree = "<group>"; };
-		81C722A3259B09F500A066DE /* AppKeychainIdentifer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppKeychainIdentifer.h; sourceTree = "<group>"; };
-		81C722A4259B09F500A066DE /* GenericPanGestureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPanGestureHandler.swift; sourceTree = "<group>"; };
-		81C722A5259B09F500A066DE /* ApplicationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationManager.m; sourceTree = "<group>"; };
-		81C722A7259B09F500A066DE /* AppDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefinition.swift; sourceTree = "<group>"; };
-		81C722A9259B09F500A066DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		81C722AB259B09F500A066DE /* Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithms.swift; sourceTree = "<group>"; };
-		81C722AD259B09F500A066DE /* PictureTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTool.swift; sourceTree = "<group>"; };
-		81C722B0259B09F500A066DE /* MapGuideManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapGuideManager.m; sourceTree = "<group>"; };
-		81C722B1259B09F500A066DE /* MapGuideManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapGuideManager.h; sourceTree = "<group>"; };
-		81C722B3259B09F500A066DE /* JZLocationConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZLocationConverter.m; sourceTree = "<group>"; };
-		81C722B4259B09F500A066DE /* JZLocationConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZLocationConverter.h; sourceTree = "<group>"; };
-		81C722BA259B09F500A066DE /* HUDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +72,6 @@
 		81576DC5250A1EAA00D5A30C /* AppDevelopExample */ = {
 			isa = PBXGroup;
 			children = (
-				81C72269259B09F400A066DE /* AppDevelopModule */,
 				81576DC6250A1EAA00D5A30C /* AppDelegate.swift */,
 				81576DC8250A1EAA00D5A30C /* SceneDelegate.swift */,
 				81576DCA250A1EAA00D5A30C /* ViewController.swift */,
@@ -125,361 +81,6 @@
 				81576DD4250A1EAB00D5A30C /* Info.plist */,
 			);
 			path = AppDevelopExample;
-			sourceTree = "<group>";
-		};
-		81C72269259B09F400A066DE /* AppDevelopModule */ = {
-			isa = PBXGroup;
-			children = (
-				81C7226A259B09F400A066DE /* Crypto */,
-				81C7226C259B09F400A066DE /* Core */,
-				81C722A8259B09F500A066DE /* Network */,
-				81C722AA259B09F500A066DE /* Algorithms */,
-				81C722AC259B09F500A066DE /* Picture */,
-				81C722AE259B09F500A066DE /* Map */,
-				81C722B5259B09F500A066DE /* ThirdParty */,
-				81C722B9259B09F500A066DE /* Hud */,
-			);
-			name = AppDevelopModule;
-			path = ../../AppDevelopModule;
-			sourceTree = "<group>";
-		};
-		81C7226A259B09F400A066DE /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				81C7226B259B09F400A066DE /* CryptoTool.swift */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		81C7226C259B09F400A066DE /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				81C7226D259B09F400A066DE /* Xib */,
-				81C72270259B09F400A066DE /* GeneralView */,
-				81C7227B259B09F400A066DE /* Extensions */,
-				81C7229A259B09F500A066DE /* Thread */,
-				81C7229C259B09F500A066DE /* Tool */,
-				81C722A6259B09F500A066DE /* BaseDefine */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		81C7226D259B09F400A066DE /* Xib */ = {
-			isa = PBXGroup;
-			children = (
-				81C7226E259B09F400A066DE /* LayoutExtensin[xib约束适配] */,
-			);
-			path = Xib;
-			sourceTree = "<group>";
-		};
-		81C7226E259B09F400A066DE /* LayoutExtensin[xib约束适配] */ = {
-			isa = PBXGroup;
-			children = (
-				81C7226F259B09F400A066DE /* LayoutExtensin.swift */,
-			);
-			path = "LayoutExtensin[xib约束适配]";
-			sourceTree = "<group>";
-		};
-		81C72270259B09F400A066DE /* GeneralView */ = {
-			isa = PBXGroup;
-			children = (
-				81C72271259B09F400A066DE /* DFTitleCellView */,
-				81C7227A259B09F400A066DE /* KMPlaceholderTextView.swift */,
-			);
-			path = GeneralView;
-			sourceTree = "<group>";
-		};
-		81C72271259B09F400A066DE /* DFTitleCellView */ = {
-			isa = PBXGroup;
-			children = (
-				81C72272259B09F400A066DE /* DFTitleCellView.m */,
-				81C72273259B09F400A066DE /* DFTitleCellConfigModel.h */,
-				81C72274259B09F400A066DE /* WLVerticalAlignmentLabel.h */,
-				81C72275259B09F400A066DE /* DFTitleCellView.h */,
-				81C72276259B09F400A066DE /* DFTitleCellConfigModel.m */,
-				81C72277259B09F400A066DE /* WLVerticalAlignmentLabel.m */,
-				81C72278259B09F400A066DE /* resource */,
-			);
-			path = DFTitleCellView;
-			sourceTree = "<group>";
-		};
-		81C72278259B09F400A066DE /* resource */ = {
-			isa = PBXGroup;
-			children = (
-				81C72279259B09F400A066DE /* icon_arrow_right@2x.png */,
-			);
-			path = resource;
-			sourceTree = "<group>";
-		};
-		81C7227B259B09F400A066DE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				81C7227C259B09F400A066DE /* Alert */,
-				81C7227D259B09F400A066DE /* UIKit */,
-				81C7228B259B09F400A066DE /* Foundation */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		81C7227C259B09F400A066DE /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Alert;
-			sourceTree = "<group>";
-		};
-		81C7227D259B09F400A066DE /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				81C7227E259B09F400A066DE /* Alert */,
-				81C72280259B09F400A066DE /* Image */,
-				81C72288259B09F400A066DE /* View */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		81C7227E259B09F400A066DE /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-				81C7227F259B09F400A066DE /* UIAlertController+ShowAlert.swift */,
-			);
-			path = Alert;
-			sourceTree = "<group>";
-		};
-		81C72280259B09F400A066DE /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				81C72281259B09F400A066DE /* UIImage+Show */,
-				81C72283259B09F400A066DE /* UIViewController+ImagePicker */,
-				81C72286259B09F400A066DE /* UIImageExtension */,
-			);
-			path = Image;
-			sourceTree = "<group>";
-		};
-		81C72281259B09F400A066DE /* UIImage+Show */ = {
-			isa = PBXGroup;
-			children = (
-				81C72282259B09F400A066DE /* UIImage+Show.swift */,
-			);
-			path = "UIImage+Show";
-			sourceTree = "<group>";
-		};
-		81C72283259B09F400A066DE /* UIViewController+ImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				81C72284259B09F400A066DE /* UIViewController+ImagePicker.m */,
-				81C72285259B09F400A066DE /* UIViewController+ImagePicker.h */,
-			);
-			path = "UIViewController+ImagePicker";
-			sourceTree = "<group>";
-		};
-		81C72286259B09F400A066DE /* UIImageExtension */ = {
-			isa = PBXGroup;
-			children = (
-				81C72287259B09F400A066DE /* UIImageExtension.swift */,
-			);
-			path = UIImageExtension;
-			sourceTree = "<group>";
-		};
-		81C72288259B09F400A066DE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				81C72289259B09F400A066DE /* UIButtonExtension.swift */,
-				81C7228A259B09F400A066DE /* UIViewExtension.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		81C7228B259B09F400A066DE /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				81C7228C259B09F400A066DE /* Date */,
-				81C7228E259B09F400A066DE /* Timer */,
-				81C72290259B09F400A066DE /* Image */,
-				81C72291259B09F400A066DE /* Number */,
-				81C72293259B09F400A066DE /* Dictionary */,
-				81C72295259B09F500A066DE /* String */,
-				81C72298259B09F500A066DE /* Data */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		81C7228C259B09F400A066DE /* Date */ = {
-			isa = PBXGroup;
-			children = (
-				81C7228D259B09F400A066DE /* DateExtension.swift */,
-			);
-			path = Date;
-			sourceTree = "<group>";
-		};
-		81C7228E259B09F400A066DE /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				81C7228F259B09F400A066DE /* SwiftTimer.swift */,
-			);
-			path = Timer;
-			sourceTree = "<group>";
-		};
-		81C72290259B09F400A066DE /* Image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Image;
-			sourceTree = "<group>";
-		};
-		81C72291259B09F400A066DE /* Number */ = {
-			isa = PBXGroup;
-			children = (
-				81C72292259B09F400A066DE /* NumberExtension.swift */,
-			);
-			path = Number;
-			sourceTree = "<group>";
-		};
-		81C72293259B09F400A066DE /* Dictionary */ = {
-			isa = PBXGroup;
-			children = (
-				81C72294259B09F400A066DE /* DictionaryExtension.swift */,
-			);
-			path = Dictionary;
-			sourceTree = "<group>";
-		};
-		81C72295259B09F500A066DE /* String */ = {
-			isa = PBXGroup;
-			children = (
-				81C72296259B09F500A066DE /* NSMutableAttributedStringExtension.swift */,
-				81C72297259B09F500A066DE /* StringExtension.swift */,
-			);
-			path = String;
-			sourceTree = "<group>";
-		};
-		81C72298259B09F500A066DE /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				81C72299259B09F500A066DE /* DataExtension.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		81C7229A259B09F500A066DE /* Thread */ = {
-			isa = PBXGroup;
-			children = (
-				81C7229B259B09F500A066DE /* DependenceOperation.swift */,
-			);
-			path = Thread;
-			sourceTree = "<group>";
-		};
-		81C7229C259B09F500A066DE /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-				81C7229D259B09F500A066DE /* VideoTool.h */,
-				81C7229E259B09F500A066DE /* AuthorizationManager.h */,
-				81C7229F259B09F500A066DE /* AppKeychainIdentifer.m */,
-				81C722A0259B09F500A066DE /* ApplicationManager.h */,
-				81C722A1259B09F500A066DE /* AuthorizationManager.m */,
-				81C722A2259B09F500A066DE /* VideoTool.m */,
-				81C722A3259B09F500A066DE /* AppKeychainIdentifer.h */,
-				81C722A4259B09F500A066DE /* GenericPanGestureHandler.swift */,
-				81C722A5259B09F500A066DE /* ApplicationManager.m */,
-			);
-			path = Tool;
-			sourceTree = "<group>";
-		};
-		81C722A6259B09F500A066DE /* BaseDefine */ = {
-			isa = PBXGroup;
-			children = (
-				81C722A7259B09F500A066DE /* AppDefinition.swift */,
-			);
-			path = BaseDefine;
-			sourceTree = "<group>";
-		};
-		81C722A8259B09F500A066DE /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				81C722A9259B09F500A066DE /* NetworkManager.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		81C722AA259B09F500A066DE /* Algorithms */ = {
-			isa = PBXGroup;
-			children = (
-				81C722AB259B09F500A066DE /* Algorithms.swift */,
-			);
-			path = Algorithms;
-			sourceTree = "<group>";
-		};
-		81C722AC259B09F500A066DE /* Picture */ = {
-			isa = PBXGroup;
-			children = (
-				81C722AD259B09F500A066DE /* PictureTool.swift */,
-			);
-			path = Picture;
-			sourceTree = "<group>";
-		};
-		81C722AE259B09F500A066DE /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				81C722AF259B09F500A066DE /* MapGuide */,
-				81C722B2259B09F500A066DE /* JZLocationConverter */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		81C722AF259B09F500A066DE /* MapGuide */ = {
-			isa = PBXGroup;
-			children = (
-				81C722B0259B09F500A066DE /* MapGuideManager.m */,
-				81C722B1259B09F500A066DE /* MapGuideManager.h */,
-			);
-			path = MapGuide;
-			sourceTree = "<group>";
-		};
-		81C722B2259B09F500A066DE /* JZLocationConverter */ = {
-			isa = PBXGroup;
-			children = (
-				81C722B3259B09F500A066DE /* JZLocationConverter.m */,
-				81C722B4259B09F500A066DE /* JZLocationConverter.h */,
-			);
-			path = JZLocationConverter;
-			sourceTree = "<group>";
-		};
-		81C722B5259B09F500A066DE /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				81C722B6259B09F500A066DE /* Crypto */,
-				81C722B7259B09F500A066DE /* PhotoLibary */,
-				81C722B8259B09F500A066DE /* Hud */,
-			);
-			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		81C722B6259B09F500A066DE /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		81C722B7259B09F500A066DE /* PhotoLibary */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PhotoLibary;
-			sourceTree = "<group>";
-		};
-		81C722B8259B09F500A066DE /* Hud */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Hud;
-			sourceTree = "<group>";
-		};
-		81C722B9259B09F500A066DE /* Hud */ = {
-			isa = PBXGroup;
-			children = (
-				81C722BA259B09F500A066DE /* HUDHelper.swift */,
-			);
-			path = Hud;
 			sourceTree = "<group>";
 		};
 		D9A8F6BF73568E2D91FDC163 /* Frameworks */ = {
@@ -501,7 +102,7 @@
 				81576DBF250A1EAA00D5A30C /* Sources */,
 				81576DC0250A1EAA00D5A30C /* Frameworks */,
 				81576DC1250A1EAA00D5A30C /* Resources */,
-				A4BFD6689AC7CCC987B54CE3 /* [CP] Embed Pods Frameworks */,
+				85C7022484367B297E0CCB06 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -559,6 +160,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		85C7022484367B297E0CCB06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8FB5A6A0F25546AFEB365E39 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,23 +197,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A4BFD6689AC7CCC987B54CE3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

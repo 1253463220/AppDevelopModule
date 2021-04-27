@@ -1,14 +1,13 @@
 //
-//  PictureTool.swift
-//  Example
+//  KingfisherTool.swift
+//  AppDevelopExample
 //
-//  Created by 王立 on 2020/9/7.
-//  Copyright © 2020 王立. All rights reserved.
+//  Created by 王立 on 2021/1/25.
+//  Copyright © 2021 王立. All rights reserved.
 //
 
 import Foundation
 import Kingfisher
-import JXPhotoBrowser
 
 
 public struct PictureTool{
@@ -35,4 +34,3 @@ public struct PictureTool{
         return data == nil ? nil : UIImage(data: data!)
     }
 }
-

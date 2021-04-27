@@ -265,7 +265,7 @@
 - (UIImageView *)arrowImgV{
     if (!_arrowImgV){
         _arrowImgV = [UIImageView new];
-        _arrowImgV.image = [UIImage imageNamed:@"icon_arrow_right@2x"];
+        _arrowImgV.image = [UIImage imageNamed:@"arrow_right"];
         _arrowImgV.translatesAutoresizingMaskIntoConstraints = false;
         [_arrowImgV setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [_arrowImgV setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];

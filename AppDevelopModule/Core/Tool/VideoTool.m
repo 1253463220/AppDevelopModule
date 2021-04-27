@@ -10,7 +10,7 @@
 
 @implementation VideoTool
 
-+ (void)resizeVideoWithAsset:(AVURLAsset *)asset preferSize:(long long)preferSize doneHandler:(void(^)(NSURL *outputURL,NSError *error))doneHandler{
++ (void)compressVideoWithAsset:(AVURLAsset *)asset preferSize:(long long)preferSize doneHandler:(void(^)(NSURL *outputURL,NSError *error))doneHandler{
     
     NSString *tempFilePath = [NSString stringWithFormat:@"%@%@.mp4",NSTemporaryDirectory(),[[NSUUID UUID] UUIDString]];
      NSURL *tempPathUrl = [NSURL fileURLWithPath:tempFilePath];

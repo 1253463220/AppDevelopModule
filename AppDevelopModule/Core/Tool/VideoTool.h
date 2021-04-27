@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoTool : NSObject
 
-+ (void)resizeVideoWithAsset:(AVURLAsset *)asset preferSize:(long long)preferSize doneHandler:(void(^)(NSURL *outputURL,NSError *error))doneHandler;
++ (void)compressVideoWithAsset:(AVURLAsset *)asset preferSize:(long long)preferSize doneHandler:(void(^)(NSURL *outputURL,NSError *error))doneHandler;
 
 @end
 

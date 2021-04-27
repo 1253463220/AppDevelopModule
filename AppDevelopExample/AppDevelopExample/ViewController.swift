@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import TZImagePickerController
 import AppDevelopModule
 
 class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,10 +21,9 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        AuthorizationManager.check(AuthorizationType.blueTooth) {
-            print("...")
-        }
+        
     }
     
 }
+
 

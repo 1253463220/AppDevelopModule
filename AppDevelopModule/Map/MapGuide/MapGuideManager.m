@@ -45,9 +45,8 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
     }];
     
-    CLLocationCoordinate2D baiducoord = [JZLocationConverter gcj02ToBd09:CLLocationCoordinate2DMake(lat, lon)];
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"百度地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=目的地&mode=driving&coord_type=gcj02",baiducoord.latitude, baiducoord.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=目的地&mode=driving&coord_type=gcj02",lat, lon] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
     }];
     UIAlertAction *action_cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
