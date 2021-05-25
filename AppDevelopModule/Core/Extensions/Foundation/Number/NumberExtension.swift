@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Int{
+ extension Int{
     public init(_ str:String) {
         self.init(lround(Double(str) ?? 0.0))
     }

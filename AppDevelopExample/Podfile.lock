@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.4.0)
   - AppDevelopModule (1.0.0):
     - AppDevelopModule/Core (= 1.0.0)
     - AppDevelopModule/Crypto (= 1.0.0)
@@ -16,8 +15,7 @@ PODS:
     - NVActivityIndicatorView
     - SVProgressHUD
   - AppDevelopModule/Map (1.0.0)
-  - AppDevelopModule/Network (1.0.0):
-    - Moya/RxSwift
+  - AppDevelopModule/Network (1.0.0)
   - AppDevelopModule/Picture (1.0.0):
     - JXPhotoBrowser
     - Kingfisher
@@ -28,15 +26,9 @@ PODS:
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
   - MBProgressHUD (1.2.0)
-  - Moya/Core (14.0.0):
-    - Alamofire (~> 5.0)
-  - Moya/RxSwift (14.0.0):
-    - Moya/Core
-    - RxSwift (~> 5.0)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
-  - RxSwift (5.1.1)
   - SVProgressHUD (2.2.5)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
@@ -70,14 +62,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - CryptoSwift
     - JXPhotoBrowser
     - Kingfisher
     - MBProgressHUD
-    - Moya
     - NVActivityIndicatorView
-    - RxSwift
     - SVProgressHUD
     - SwifterSwift
     - TZImagePickerController
@@ -87,19 +76,16 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
-  AppDevelopModule: 50854c43a0fdc3810fd1611e02947d6814789c6d
+  AppDevelopModule: 8e44e3c638c180609800af66167f20460b7008cd
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
   JXPhotoBrowser: 7f0bc11f02fbc84ae06829f922f32ce822aa9661
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   TZImagePickerController: aff4b62eacce0194d2494ee4f42934bcff577cec
 
-PODFILE CHECKSUM: 99c57c34aa188879b0d8da7b730ca2495fb7a618
+PODFILE CHECKSUM: 3573157fd2452562a647da87e7c57bd7adc4a893
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

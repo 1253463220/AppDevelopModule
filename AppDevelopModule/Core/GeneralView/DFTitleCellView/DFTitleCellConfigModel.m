@@ -36,12 +36,15 @@
 - (void)baseInit{
     self.title = @"";
     self.type = RightViewTypeLabel;
+    self.isShowTitleImg = false;
     self.isShowStar = false;
-    self.isShowArrow = false;
+    self.isShowRightArrow = false;
     self.isCanTap = false;
     self.isShowLine = true;
     self.leftTextVerticalAlignment = WLTextVerticalAlignmentMiddle;
     self.baseStackSpace = 10;
+    self.titleImgRightMargin = 5;
+    self.titleImgSize = CGSizeZero;
 }
 
 @end

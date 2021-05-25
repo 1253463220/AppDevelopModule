@@ -26,12 +26,18 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) RightViewType type;
 /**是否显示*  */
 @property (assign, nonatomic) BOOL isShowStar;
+/**是否显示左边图片  */
+@property (assign, nonatomic) BOOL isShowTitleImg;
+/**titleimg右边的margin  */
+@property (assign, nonatomic) float titleImgRightMargin;
+/**titleimg的大小  */
+@property (assign, nonatomic) CGSize titleImgSize;
 /**是否有右箭头*/
-@property (assign, nonatomic) BOOL isShowArrow;
+@property (assign, nonatomic) BOOL isShowRightArrow;
 /**是否有下划线*/
 @property (assign, nonatomic) BOOL isShowLine;
 /**右部的自定义视图*/
-@property (strong, nonatomic) UIView *customView;
+@property (strong, nonatomic) UIView *customRightView;
 /**整体高度*/
 @property (assign, nonatomic) CGFloat itemHeight;
 /**左右内边距*/

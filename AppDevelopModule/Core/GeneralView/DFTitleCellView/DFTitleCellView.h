@@ -15,14 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DFTitleCellView : UIView
 
 @property (strong, nonatomic, nullable) UIView *backV;
-@property (strong, nonatomic, nullable) WLVerticalAlignmentLabel *starL;
-@property (strong, nonatomic, nullable) WLVerticalAlignmentLabel *titleL;
 
-@property (strong, nonatomic, nullable) UILabel *valueL;
-@property (strong, nonatomic, nullable) UIImageView *imageV;
-@property (strong, nonatomic, nullable) UITextField *textTF;
-@property (strong, nonatomic, nullable) UIImageView *arrowImgV;
-@property (strong, nonatomic, nullable) UISwitch *swithcV;
+@property (strong, nonatomic, nullable) UIImageView *l_titleImgV;
+@property (strong, nonatomic, nullable) WLVerticalAlignmentLabel *l_starL;
+@property (strong, nonatomic, nullable) WLVerticalAlignmentLabel *l_titleL;
+
+@property (strong, nonatomic, nullable) UILabel *r_valueL;
+@property (strong, nonatomic, nullable) UIImageView *r_imageV;
+@property (strong, nonatomic, nullable) UITextField *r_textTF;
+@property (strong, nonatomic, nullable) UIImageView *r_arrowImgV;
+@property (strong, nonatomic, nullable) UISwitch *r_swithcV;
 
 @property (strong, nonatomic, nullable) UIView *lineV;
 

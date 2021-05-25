@@ -59,7 +59,6 @@ iOS App开发工具集合,以Swift为主。
   
   s.subspec 'Network' do |ss|
     ss.source_files = 'AppDevelopModule/Network/**/*'
-    ss.dependency 'Moya/RxSwift'
   end
   
   s.subspec 'Map' do |ss|

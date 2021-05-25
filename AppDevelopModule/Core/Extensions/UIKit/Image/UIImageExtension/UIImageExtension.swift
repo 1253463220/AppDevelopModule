@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-public enum GradientColorDirection {
+@objc public enum GradientColorDirection : Int {
     case leftright
     case topdown
 }
 
 // 图片
-extension UIImage{
+@objc extension UIImage{
     ///纯色图片
     public static func colorImage(_ color:UIColor,_ size:CGSize) -> UIImage{
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -60,7 +60,7 @@ extension UIImage{
 
 
 
-extension UIImage{
+@objc extension UIImage{
     
     public func addWater(image:UIImage?,text:String,imageRect:CGRect,textRect:CGRect,textAttribute:[NSAttributedString.Key:Any]) -> UIImage{
         

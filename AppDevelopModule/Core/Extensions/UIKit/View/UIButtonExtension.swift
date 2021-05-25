@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-public enum ImageTitlePostion {
+@objc public enum ImageTitlePostion : Int{
     case imageUpTitleDown
     case imageDownTitleUp
     case imageLeftTitleRight
     case imageRightTitleLeft
 }
 
-extension UIButton{
-    public func layout(style:ImageTitlePostion,space:CGFloat) {
+@objc extension UIButton{
+    public func relayoutImgTitle(style:ImageTitlePostion,imgTitleSpace space:CGFloat) {
         let imageSize = self.imageView?.intrinsicContentSize ?? CGSize.zero
         let labelSize = self.imageView?.intrinsicContentSize ?? CGSize.zero
         var imageTop,imageBottom,imageLeft,imageRight : CGFloat

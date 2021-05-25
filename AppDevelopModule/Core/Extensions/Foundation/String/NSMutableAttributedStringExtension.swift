@@ -10,16 +10,7 @@ import Foundation
 import UIKit
 
 fileprivate var key = "selectRange"
-extension NSMutableAttributedString {
-    
-    fileprivate var selectRange : NSRange?{
-        get{
-            return objc_getAssociatedObject(self, &key) as? NSRange
-        }
-        set{
-            objc_setAssociatedObject(self, &key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
+@objc extension NSMutableAttributedString {
     
     public func done(){}
     
@@ -31,37 +22,43 @@ extension NSMutableAttributedString {
         if tLocation < 0 {tLocation = 0}
         if tLength < 0 {tLength = 0}
         if (tLocation+tLength > self.length) {tLength = self.length-tLocation}
-        selectRange = NSRange.init(location: tLocation, length: tLength)
+        let range = NSRange.init(location: tLocation, length: tLength)
+        objc_setAssociatedObject(self, &key, range, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         return self
     }
     
     public func rangeAll() -> NSMutableAttributedString {
         guard self.length > 0 else {return self}
-        selectRange = NSRange.init(location: 0, length: self.length)
+        let range = NSRange.init(location: 0, length: self.length)
+        objc_setAssociatedObject(self, &key, range, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         return self
     }
     
     public func color(_ setColor:UIColor) -> NSMutableAttributedString {
         guard self.length > 0 else {return self}
-        self.addAttributes([NSAttributedString.Key.foregroundColor:setColor], range: selectRange ?? NSRange.init(location: 0, length: self.length))
+        let selectRange = (objc_getAssociatedObject(self, &key) ?? NSRange(location: 0, length: self.length)) as! NSRange
+        self.addAttributes([NSAttributedString.Key.foregroundColor:setColor], range: selectRange)
         return self
     }
     
     public func font(_ setFont : UIFont) -> NSMutableAttributedString{
         guard self.length > 0 else {return self}
-        self.addAttributes([NSAttributedString.Key.font:setFont], range: selectRange ?? NSRange.init(location: 0, length: self.length))
+        let selectRange = (objc_getAssociatedObject(self, &key) ?? NSRange(location: 0, length: self.length)) as! NSRange
+        self.addAttributes([NSAttributedString.Key.font:setFont], range: selectRange)
         return self
     }
     
     public func underlineStyle(_ underlineStyle:NSUnderlineStyle) -> NSMutableAttributedString {
         guard self.length > 0 else {return self}
-        self.addAttributes([NSAttributedString.Key.underlineStyle:underlineStyle.rawValue], range: selectRange ?? NSRange.init(location: 0, length: self.length))
+        let selectRange = (objc_getAssociatedObject(self, &key) ?? NSRange(location: 0, length: self.length)) as! NSRange
+        self.addAttributes([NSAttributedString.Key.underlineStyle:underlineStyle.rawValue], range: selectRange)
         return self
     }
     
     public func underlineColor(_ underlineColor:UIColor) -> NSMutableAttributedString {
         guard self.length > 0 else {return self}
-        self.addAttributes([NSAttributedString.Key.underlineColor:underlineColor], range: selectRange ?? NSRange.init(location: 0, length: self.length))
+        let selectRange = (objc_getAssociatedObject(self, &key) ?? NSRange(location: 0, length: self.length)) as! NSRange
+        self.addAttributes([NSAttributedString.Key.underlineColor:underlineColor], range: selectRange)
         return self
     }
     
@@ -70,7 +67,8 @@ extension NSMutableAttributedString {
         let ps = NSMutableParagraphStyle()
         ps.lineSpacing = lineSpacing
         ps.alignment = .center
-        self.addAttributes([NSAttributedString.Key.paragraphStyle:ps], range: selectRange ?? NSRange.init(location: 0, length: self.length))
+        let selectRange = (objc_getAssociatedObject(self, &key) ?? NSRange(location: 0, length: self.length)) as! NSRange
+        self.addAttributes([NSAttributedString.Key.paragraphStyle:ps], range: selectRange)
         return self
     }
 

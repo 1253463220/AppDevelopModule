@@ -7,6 +7,7 @@
 //
 
 #import "DFTitleCellView.h"
+#import "UIView+YXAction.h"
 #define DFRGB16(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1]
 #define DFLineColor DFRGB16(0xf0f0f1)
 #define DFNormalBlackColor DFRGB16(0x333333)
@@ -17,7 +18,6 @@
 @property (strong, nonatomic, nullable) UIStackView *baseStackV;
 @property (strong, nonatomic, nullable) UIStackView *leftStackV;
 @property (strong, nonatomic, nullable) UIStackView *rightStackV;
-@property (strong, nonatomic, nullable) UIButton *actBtn;
 
 @end
 
@@ -59,18 +59,18 @@
         [subV removeFromSuperview];
     }
     self.backV = nil;
-    self.starL = nil;
-    self.titleL = nil;
-    self.valueL = nil;
-    self.imageV = nil;
-    self.textTF = nil;
-    self.arrowImgV = nil;
-    self.swithcV = nil;
+    self.l_titleImgV = nil;
+    self.l_starL = nil;
+    self.l_titleL = nil;
+    self.r_valueL = nil;
+    self.r_imageV = nil;
+    self.r_textTF = nil;
+    self.r_arrowImgV = nil;
+    self.r_swithcV = nil;
     self.lineV = nil;
     self.baseStackV = nil;
     self.leftStackV = nil;
     self.rightStackV = nil;
-    self.actBtn = nil;
     [self configUI];
 }
 
@@ -83,8 +83,9 @@
     [self.baseStackV addArrangedSubview:self.leftStackV];
     [self.baseStackV addArrangedSubview:self.rightStackV];
     
-    [self.leftStackV addArrangedSubview:self.starL];
-    [self.leftStackV addArrangedSubview:self.titleL];
+    [self.leftStackV addArrangedSubview:self.l_titleImgV];
+    [self.leftStackV addArrangedSubview:self.l_starL];
+    [self.leftStackV addArrangedSubview:self.l_titleL];
 
     [[self.backV.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:0] setActive:true];
     [[self.backV.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:0] setActive:true];
@@ -106,48 +107,56 @@
     [[self.rightStackV.topAnchor constraintEqualToAnchor:self.baseStackV.topAnchor constant:self.config.verticalPadding] setActive:true];
     [[self.leftStackV.heightAnchor constraintEqualToAnchor:self.rightStackV.heightAnchor] setActive:true];
     
-    CGSize customViewSize = [self.config.customView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGSize customViewSize = [self.config.customRightView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     switch (self.config.type) {
         case RightViewTypeOnlyTitle:
             self.rightStackV.hidden = true;
             break;
         case RightViewTypeLabel:
-            [self.rightStackV addArrangedSubview:self.valueL];
-            [[self.titleL.heightAnchor constraintEqualToAnchor:self.valueL.heightAnchor] setActive:true];
+            [self.rightStackV addArrangedSubview:self.r_valueL];
+            [[self.l_titleL.heightAnchor constraintEqualToAnchor:self.r_valueL.heightAnchor] setActive:true];
             break;
         case RightViewTypeImage:
-            [self.rightStackV addArrangedSubview:self.imageV];
+            [self.rightStackV addArrangedSubview:self.r_imageV];
             break;
         case RightViewTypeTextField:
-            [self.rightStackV addArrangedSubview:self.textTF];
-            [[self.textTF.heightAnchor constraintEqualToConstant:self.config.itemHeight] setActive:true];
+            [self.rightStackV addArrangedSubview:self.r_textTF];
+            [[self.r_textTF.heightAnchor constraintEqualToConstant:self.config.itemHeight] setActive:true];
             break;
         case RightViewTypeOffOn:
-            [self.rightStackV addArrangedSubview:self.swithcV];
+            [self.rightStackV addArrangedSubview:self.r_swithcV];
             break;
         case RightViewTypeCustomView:
-            [self.rightStackV addArrangedSubview:self.config.customView];
-            [[self.config.customView.heightAnchor constraintEqualToConstant:customViewSize.height] setActive:true];
-            [[self.config.customView.widthAnchor constraintEqualToConstant:customViewSize.width] setActive:true];
+            [self.rightStackV addArrangedSubview:self.config.customRightView];
+            [[self.config.customRightView.heightAnchor constraintEqualToConstant:customViewSize.height] setActive:true];
+            [[self.config.customRightView.widthAnchor constraintEqualToConstant:customViewSize.width] setActive:true];
             break;
         default:
             break;
     }
-    [self.rightStackV addArrangedSubview:self.arrowImgV];
+    [self.rightStackV addArrangedSubview:self.r_arrowImgV];
     
+    //标题图片
+    self.l_titleImgV.hidden = !self.config.isShowTitleImg;
+    if (self.config.isShowTitleImg) {
+        [[self.l_titleImgV.heightAnchor constraintEqualToConstant:self.config.titleImgSize.height] setActive:true];
+        [[self.l_titleImgV.widthAnchor constraintEqualToConstant:self.config.titleImgSize.width] setActive:true];
+        if (self.l_titleL.superview != nil && self.l_titleL.superview == self.l_titleImgV.superview) {
+            [[self.l_titleImgV.rightAnchor constraintEqualToAnchor:self.l_titleL.leftAnchor constant:self.config.titleImgRightMargin] setActive:true];
+        }
+    }
     //*标记
-    self.starL.hidden = !self.config.isShowStar;
+    self.l_starL.hidden = !self.config.isShowStar;
     //右边箭头
-    self.arrowImgV.hidden = !self.config.isShowArrow;
+    self.r_arrowImgV.hidden = !self.config.isShowRightArrow;
     //下划线
     self.lineV.hidden = !self.config.isShowLine;
     //是否可点击
     if (self.config.isCanTap){
-        [self addSubview:self.actBtn];
-        [[self.actBtn.topAnchor constraintEqualToAnchor:self.topAnchor] setActive:true];
-        [[self.actBtn.leftAnchor constraintEqualToAnchor:self.leftAnchor] setActive:true];
-        [[self.actBtn.bottomAnchor constraintEqualToAnchor:self.bottomAnchor] setActive:true];
-        [[self.actBtn.rightAnchor constraintEqualToAnchor:self.rightAnchor] setActive:true];
+        __weak typeof(*&self) weakSelf = self;
+        [self addTapAction:^(UITapGestureRecognizer *sender) {
+            [weakSelf doTapAct];
+        }];
     }
     //左stackView宽度
     if (self.config.leftStackWidth) {
@@ -163,33 +172,33 @@
     }
     //左标题文字颜色
     if (self.config.titleLabelColor) {
-        self.titleL.textColor = self.config.titleLabelColor;
+        self.l_titleL.textColor = self.config.titleLabelColor;
     }
     //左标题文字大小
     if (self.config.titleLabelFont) {
-        self.titleL.font = self.config.titleLabelFont;
+        self.l_titleL.font = self.config.titleLabelFont;
     }
     //右label文字颜色
     if (self.config.valueLabelColor) {
-        self.valueL.textColor = self.config.valueLabelColor;
+        self.r_valueL.textColor = self.config.valueLabelColor;
     }
     //右label文字大小
     if (self.config.valueLabelFont) {
-        self.valueL.font = self.config.valueLabelFont;
+        self.r_valueL.font = self.config.valueLabelFont;
     }
     //整体背景色
     if (self.config.backColor) {
         self.backV.backgroundColor = self.config.backColor;
     }
     //左标题文字垂直布局
-    self.titleL.textVerticalAlignment = self.config.leftTextVerticalAlignment;
+    self.l_titleL.textVerticalAlignment = self.config.leftTextVerticalAlignment;
     
 }
 
 #pragma mark 数据请求
 
 #pragma mark 事件
-- (void)tapActBtn{
+- (void)doTapAct{
     if (self.config.tapBlock){
         self.config.tapBlock();
     }
@@ -217,78 +226,85 @@
     return  _lineV;;
 }
 
-- (WLVerticalAlignmentLabel *)starL{
-    if (!_starL){
-        _starL = [WLVerticalAlignmentLabel new];
-        _starL.text = @"*";
-        _starL.textColor = DFRGB16(0xF85D63);
-        [_starL setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-        [_starL setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-        _starL.translatesAutoresizingMaskIntoConstraints = false;
+- (UIImageView *)l_titleImgV{
+    if (!_l_titleImgV){
+        _l_titleImgV = [UIImageView new];
     }
-    return _starL;
+    return _l_titleImgV;
 }
 
-- (WLVerticalAlignmentLabel *)titleL{
-    if (!_titleL){
-        _titleL = [WLVerticalAlignmentLabel new];
-        _titleL.font = [UIFont systemFontOfSize:14];
-        _titleL.textColor = DFNormalBlackColor;
-        [_titleL setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-        [_titleL setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-        _titleL.text = _config.title;
-        _titleL.translatesAutoresizingMaskIntoConstraints = false;
+- (WLVerticalAlignmentLabel *)l_starL{
+    if (!_l_starL){
+        _l_starL = [WLVerticalAlignmentLabel new];
+        _l_starL.text = @"*";
+        _l_starL.textColor = DFRGB16(0xF85D63);
+        [_l_starL setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [_l_starL setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        _l_starL.translatesAutoresizingMaskIntoConstraints = false;
     }
-    return  _titleL;
+    return _l_starL;
 }
 
-- (UILabel *)valueL{
-    if (!_valueL){
-        _valueL = [UILabel new];
-        _valueL.font = [UIFont systemFontOfSize:14];
-        _valueL.textColor = DFNormalGrayColor;
-        _valueL.translatesAutoresizingMaskIntoConstraints = false;
-        _valueL.numberOfLines = 0;
-        _valueL.textAlignment = NSTextAlignmentRight;
+- (WLVerticalAlignmentLabel *)l_titleL{
+    if (!_l_titleL){
+        _l_titleL = [WLVerticalAlignmentLabel new];
+        _l_titleL.font = [UIFont systemFontOfSize:14];
+        _l_titleL.textColor = DFNormalBlackColor;
+        [_l_titleL setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [_l_titleL setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        _l_titleL.text = _config.title;
+        _l_titleL.translatesAutoresizingMaskIntoConstraints = false;
     }
-    return  _valueL;
+    return  _l_titleL;
 }
 
-- (UIImageView *)imageV{
-    if(!_imageV){
-        _imageV = [UIImageView new];
-        _imageV.translatesAutoresizingMaskIntoConstraints = false;
+- (UILabel *)r_valueL{
+    if (!_r_valueL){
+        _r_valueL = [UILabel new];
+        _r_valueL.font = [UIFont systemFontOfSize:14];
+        _r_valueL.textColor = DFNormalGrayColor;
+        _r_valueL.translatesAutoresizingMaskIntoConstraints = false;
+        _r_valueL.numberOfLines = 0;
+        _r_valueL.textAlignment = NSTextAlignmentRight;
     }
-    return  _imageV;
+    return  _r_valueL;
 }
 
-- (UIImageView *)arrowImgV{
-    if (!_arrowImgV){
-        _arrowImgV = [UIImageView new];
-        _arrowImgV.image = [UIImage imageNamed:@"arrow_right"];
-        _arrowImgV.translatesAutoresizingMaskIntoConstraints = false;
-        [_arrowImgV setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-        [_arrowImgV setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+- (UIImageView *)r_imageV{
+    if(!_r_imageV){
+        _r_imageV = [UIImageView new];
+        _r_imageV.translatesAutoresizingMaskIntoConstraints = false;
     }
-    return _arrowImgV;
+    return  _r_imageV;
 }
 
-- (UITextField *)textTF{
-    if (!_textTF){
-        _textTF = [UITextField new];
-        _textTF.font = [UIFont systemFontOfSize:14];
-        _textTF.textColor = DFNormalBlackColor;
-        _textTF.translatesAutoresizingMaskIntoConstraints = false;
+- (UIImageView *)r_arrowImgV{
+    if (!_r_arrowImgV){
+        _r_arrowImgV = [UIImageView new];
+        _r_arrowImgV.image = [UIImage imageNamed:@"arrow_right"];
+        _r_arrowImgV.translatesAutoresizingMaskIntoConstraints = false;
+        [_r_arrowImgV setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [_r_arrowImgV setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     }
-    return _textTF;
+    return _r_arrowImgV;
 }
 
-- (UISwitch *)swithcV{
-    if (!_swithcV){
-        _swithcV = [UISwitch new];
-        _swithcV.translatesAutoresizingMaskIntoConstraints = false;
+- (UITextField *)r_textTF{
+    if (!_r_textTF){
+        _r_textTF = [UITextField new];
+        _r_textTF.font = [UIFont systemFontOfSize:14];
+        _r_textTF.textColor = DFNormalBlackColor;
+        _r_textTF.translatesAutoresizingMaskIntoConstraints = false;
     }
-    return _swithcV;
+    return _r_textTF;
+}
+
+- (UISwitch *)r_swithcV{
+    if (!_r_swithcV){
+        _r_swithcV = [UISwitch new];
+        _r_swithcV.translatesAutoresizingMaskIntoConstraints = false;
+    }
+    return _r_swithcV;
 }
 
 
@@ -325,16 +341,6 @@
         _rightStackV.translatesAutoresizingMaskIntoConstraints = false;
     }
     return _rightStackV;
-}
-
-- (UIButton *)actBtn{
-    if (!_actBtn) {
-        _actBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _actBtn.backgroundColor = [UIColor clearColor];
-        _actBtn.translatesAutoresizingMaskIntoConstraints = false;
-        [_actBtn addTarget:self action:@selector(tapActBtn) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _actBtn;
 }
 
 @end

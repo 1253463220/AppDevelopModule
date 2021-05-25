@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class WindowCallOutView: UIView ,UIGestureRecognizerDelegate{
+@objc public class WindowCallOutView: UIView ,UIGestureRecognizerDelegate{
 
     var shouldTapDismiss = false
     // MARK: 生命周期
