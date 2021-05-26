@@ -1,10 +1,12 @@
 PODS:
   - AppDevelopModule (1.0.0):
+    - AppDevelopModule/Algorithms (= 1.0.0)
     - AppDevelopModule/Core (= 1.0.0)
     - AppDevelopModule/Crypto (= 1.0.0)
     - AppDevelopModule/Hud (= 1.0.0)
     - AppDevelopModule/Map (= 1.0.0)
     - AppDevelopModule/Network (= 1.0.0)
+  - AppDevelopModule/Algorithms (1.0.0)
   - AppDevelopModule/Core (1.0.0):
     - SwifterSwift
   - AppDevelopModule/Crypto (1.0.0):
@@ -63,7 +65,7 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  AppDevelopModule: 422cf917f032f592f8ed8fb977b0983241a73c94
+  AppDevelopModule: 10f0fd78053b1154764d9c89e545f966d4814584
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667

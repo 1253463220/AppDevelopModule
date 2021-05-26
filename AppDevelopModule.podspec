@@ -29,7 +29,7 @@ iOS App开发工具集合,以Swift为主。
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.default_subspecs = 'Core','Hud','Network','Map','Crypto'
+  s.default_subspecs = 'Core','Hud','Network','Map','Crypto','Algorithms'
   s.swift_version = ['5.0']
   s.frameworks = 'Foundation','UIKit'
 #  s.source_files = 'AppDevelopModule/**/*'
