@@ -18,11 +18,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.present(TestVC(), animated: true, completion: nil)
-    }
-    
 }
 
 

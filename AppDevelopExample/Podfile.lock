@@ -1,26 +1,26 @@
 PODS:
-  - AppDevelopModule (1.0.2):
-    - AppDevelopModule/Algorithms (= 1.0.2)
-    - AppDevelopModule/Core (= 1.0.2)
-    - AppDevelopModule/Crypto (= 1.0.2)
-    - AppDevelopModule/Hud (= 1.0.2)
-    - AppDevelopModule/Map (= 1.0.2)
-    - AppDevelopModule/Network (= 1.0.2)
-  - AppDevelopModule/Algorithms (1.0.2):
+  - AppDevelopModule (1.0.3):
+    - AppDevelopModule/Algorithms (= 1.0.3)
+    - AppDevelopModule/Core (= 1.0.3)
+    - AppDevelopModule/Crypto (= 1.0.3)
+    - AppDevelopModule/Hud (= 1.0.3)
+    - AppDevelopModule/Map (= 1.0.3)
+    - AppDevelopModule/Network (= 1.0.3)
+  - AppDevelopModule/Algorithms (1.0.3):
     - AppDevelopModule/Core
-  - AppDevelopModule/Core (1.0.2):
+  - AppDevelopModule/Core (1.0.3):
     - SwifterSwift
-  - AppDevelopModule/Crypto (1.0.2):
+  - AppDevelopModule/Crypto (1.0.3):
     - AppDevelopModule/Core
     - CryptoSwift
-  - AppDevelopModule/Hud (1.0.2):
+  - AppDevelopModule/Hud (1.0.3):
     - AppDevelopModule/Core
     - MBProgressHUD
     - NVActivityIndicatorView
     - SVProgressHUD
-  - AppDevelopModule/Map (1.0.2):
+  - AppDevelopModule/Map (1.0.3):
     - AppDevelopModule/Core
-  - AppDevelopModule/Network (1.0.2):
+  - AppDevelopModule/Network (1.0.3):
     - AppDevelopModule/Core
   - CryptoSwift (1.4.0)
   - MBProgressHUD (1.2.0)
@@ -55,25 +55,28 @@ PODS:
   - SwifterSwift/UIKit (5.2.0)
 
 DEPENDENCIES:
-  - AppDevelopModule
+  - AppDevelopModule (from `..`)
 
 SPEC REPOS:
   trunk:
-    - AppDevelopModule
     - CryptoSwift
     - MBProgressHUD
     - NVActivityIndicatorView
     - SVProgressHUD
     - SwifterSwift
 
+EXTERNAL SOURCES:
+  AppDevelopModule:
+    :path: ".."
+
 SPEC CHECKSUMS:
-  AppDevelopModule: 9c01ef204e2653049b3631ce0313b8f6ed18c207
+  AppDevelopModule: 45ffeca8f62581909aa6096cd8b763ccbaf012b3
   CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
-PODFILE CHECKSUM: 2b83793b6a3509b44136a0eb90c33058a7c53087
+PODFILE CHECKSUM: 7d3b74ccbe74f37bb9c1d095d855cc8802feed16
 
 COCOAPODS: 1.10.1

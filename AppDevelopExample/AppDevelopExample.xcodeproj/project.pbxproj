@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8106E3B3264E6A7900207B40 /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8106E3B2264E6A7900207B40 /* TestVC.m */; };
 		81576DC7250A1EAA00D5A30C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576DC6250A1EAA00D5A30C /* AppDelegate.swift */; };
 		81576DC9250A1EAA00D5A30C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576DC8250A1EAA00D5A30C /* SceneDelegate.swift */; };
 		81576DCB250A1EAA00D5A30C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576DCA250A1EAA00D5A30C /* ViewController.swift */; };
@@ -22,8 +21,6 @@
 		508559AF1C040609886F78A2 /* Pods-AppDevelopExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDevelopExample.release.xcconfig"; path = "Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample.release.xcconfig"; sourceTree = "<group>"; };
 		7A8A45EC8CC887B36E43F219 /* Pods-AppDevelopExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDevelopExample.debug.xcconfig"; path = "Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8106E3B0264E6A7900207B40 /* AppDevelopExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDevelopExample-Bridging-Header.h"; sourceTree = "<group>"; };
-		8106E3B1264E6A7900207B40 /* TestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC.h; sourceTree = "<group>"; };
-		8106E3B2264E6A7900207B40 /* TestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestVC.m; sourceTree = "<group>"; };
 		81576DC3250A1EAA00D5A30C /* AppDevelopExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDevelopExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81576DC6250A1EAA00D5A30C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81576DC8250A1EAA00D5A30C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,8 +76,6 @@
 				81576DC6250A1EAA00D5A30C /* AppDelegate.swift */,
 				81576DC8250A1EAA00D5A30C /* SceneDelegate.swift */,
 				81576DCA250A1EAA00D5A30C /* ViewController.swift */,
-				8106E3B1264E6A7900207B40 /* TestVC.h */,
-				8106E3B2264E6A7900207B40 /* TestVC.m */,
 				81576DCC250A1EAA00D5A30C /* Main.storyboard */,
 				81576DCF250A1EAB00D5A30C /* Assets.xcassets */,
 				81576DD1250A1EAB00D5A30C /* LaunchScreen.storyboard */,
@@ -109,7 +104,7 @@
 				81576DBF250A1EAA00D5A30C /* Sources */,
 				81576DC0250A1EAA00D5A30C /* Frameworks */,
 				81576DC1250A1EAA00D5A30C /* Resources */,
-				85C7022484367B297E0CCB06 /* [CP] Embed Pods Frameworks */,
+				2B5A97365D4470E773A1923D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,7 +163,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		85C7022484367B297E0CCB06 /* [CP] Embed Pods Frameworks */ = {
+		2B5A97365D4470E773A1923D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,7 +209,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8106E3B3264E6A7900207B40 /* TestVC.m in Sources */,
 				81576DCB250A1EAA00D5A30C /* ViewController.swift in Sources */,
 				81576DC7250A1EAA00D5A30C /* AppDelegate.swift in Sources */,
 				81576DC9250A1EAA00D5A30C /* SceneDelegate.swift in Sources */,

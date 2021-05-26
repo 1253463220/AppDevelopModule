@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppDevelopModule'
-  s.version          = '1.0.2'
+  s.version          = '1.0.4'
   s.summary          = 'iOS App开发工具集合'
 
 # This description is used to generate tags and improve search results.
