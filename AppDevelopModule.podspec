@@ -48,6 +48,7 @@ iOS App开发工具集合,以Swift为主。
   
   s.subspec 'Hud' do |ss|
     ss.source_files = 'AppDevelopModule/Hud/**/*.{h,m,swift}'
+    ss.dependency 'AppDevelopModule/Core'
     ss.dependency 'MBProgressHUD'
     ss.dependency 'SVProgressHUD'
     ss.dependency 'NVActivityIndicatorView'
@@ -55,20 +56,23 @@ iOS App开发工具集合,以Swift为主。
   
   s.subspec 'Algorithms' do |ss|
     ss.source_files = 'AppDevelopModule/Algorithms/**/*.{h,m,swift}'
+    ss.dependency 'AppDevelopModule/Core'
   end
   
   s.subspec 'Network' do |ss|
     ss.source_files = 'AppDevelopModule/Network/**/*.{h,m,swift}'
+    ss.dependency 'AppDevelopModule/Core'
   end
   
   s.subspec 'Map' do |ss|
     ss.source_files = 'AppDevelopModule/Map/**/*.{h,m,swift}'
-    
+    ss.dependency 'AppDevelopModule/Core'
   end
   
   s.subspec 'Crypto' do |ss| #加密
     ss.source_files = 'AppDevelopModule/Crypto/**/*.{h,m,swift}'
     ss.dependency 'CryptoSwift'
+    ss.dependency 'AppDevelopModule/Core'
   end
   
   
