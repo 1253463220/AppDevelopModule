@@ -41,3 +41,26 @@ fileprivate var key = "badgeLabel"
         config(label!)
     }
 }
+
+
+extension UIScrollView {
+    /// 截长屏Image
+    var captureLongImage: UIImage? {
+        var image: UIImage? = nil
+        let savedContentOffset = contentOffset
+        let savedFrame = layer.frame
+        
+        contentOffset = .zero
+        layer.frame = CGRect(x: 0, y: 0,
+                       width: contentSize.width,
+                       height: contentSize.height)
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        contentOffset = savedContentOffset
+        layer.frame = savedFrame
+        return image
+        
+    }
+}
