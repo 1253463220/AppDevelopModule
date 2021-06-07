@@ -10,20 +10,6 @@
 
 @implementation DFTitleCellConfigModel
 
-- (instancetype)initWith:(NSString *)title type:(RightViewType)type itemHeight:(CGFloat)itemHeight horizPadding:(CGFloat)horizPadding verticalPadding:(CGFloat)verticalPadding leftStackWidth:(CGFloat)leftStackWidth baseStackSpace:(CGFloat)baseStackSpace{
-    if (self = [super init]) {
-        [self baseInit];
-        self.title = title;
-        self.type = type;
-        self.itemHeight = itemHeight;
-        self.horizPadding = horizPadding;
-        self.verticalPadding = verticalPadding;
-        self.leftStackWidth = leftStackWidth;
-        self.baseStackSpace = baseStackSpace;
-    }
-    return  self;
-}
-
 - (instancetype)init
 {
     self = [super init];
@@ -35,16 +21,14 @@
 
 - (void)baseInit{
     self.title = @"";
-    self.type = RightViewTypeLabel;
-    self.isShowTitleImg = false;
-    self.isShowStar = false;
-    self.isShowRightArrow = false;
-    self.isCanTap = false;
+    self.rightType = DFRightViewTypeLabel;
     self.isShowLine = true;
     self.leftTextVerticalAlignment = WLTextVerticalAlignmentMiddle;
     self.baseStackSpace = 10;
     self.titleImgRightMargin = 5;
+    self.lineHeight = 0.5;
     self.titleImgSize = CGSizeZero;
+    self.contentEdgeInset = UIEdgeInsetsMake(0, 16, 0, 16);
 }
 
 @end

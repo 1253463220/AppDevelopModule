@@ -1,26 +1,26 @@
 PODS:
-  - AppDevelopModule (1.0.3):
-    - AppDevelopModule/Algorithms (= 1.0.3)
-    - AppDevelopModule/Core (= 1.0.3)
-    - AppDevelopModule/Crypto (= 1.0.3)
-    - AppDevelopModule/Hud (= 1.0.3)
-    - AppDevelopModule/Map (= 1.0.3)
-    - AppDevelopModule/Network (= 1.0.3)
-  - AppDevelopModule/Algorithms (1.0.3):
+  - AppDevelopModule (1.0.4):
+    - AppDevelopModule/Algorithms (= 1.0.4)
+    - AppDevelopModule/Core (= 1.0.4)
+    - AppDevelopModule/Crypto (= 1.0.4)
+    - AppDevelopModule/Hud (= 1.0.4)
+    - AppDevelopModule/Map (= 1.0.4)
+    - AppDevelopModule/Network (= 1.0.4)
+  - AppDevelopModule/Algorithms (1.0.4):
     - AppDevelopModule/Core
-  - AppDevelopModule/Core (1.0.3):
+  - AppDevelopModule/Core (1.0.4):
     - SwifterSwift
-  - AppDevelopModule/Crypto (1.0.3):
+  - AppDevelopModule/Crypto (1.0.4):
     - AppDevelopModule/Core
     - CryptoSwift
-  - AppDevelopModule/Hud (1.0.3):
+  - AppDevelopModule/Hud (1.0.4):
     - AppDevelopModule/Core
     - MBProgressHUD
     - NVActivityIndicatorView
     - SVProgressHUD
-  - AppDevelopModule/Map (1.0.3):
+  - AppDevelopModule/Map (1.0.4):
     - AppDevelopModule/Core
-  - AppDevelopModule/Network (1.0.3):
+  - AppDevelopModule/Network (1.0.4):
     - AppDevelopModule/Core
   - CryptoSwift (1.4.0)
   - MBProgressHUD (1.2.0)
@@ -70,7 +70,7 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  AppDevelopModule: 45ffeca8f62581909aa6096cd8b763ccbaf012b3
+  AppDevelopModule: c11262276a8d3a1d6bc3010b75035c7b73083afb
   CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667

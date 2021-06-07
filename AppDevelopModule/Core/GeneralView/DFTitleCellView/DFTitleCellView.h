@@ -12,9 +12,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface DFTouchColorView : UIView
+
+@property (strong, nonatomic) UIColor *orignalBackColor;
+@property (strong, nonatomic) UIColor *touchColor;
+@property (assign, nonatomic) bool shouldPressColor;
+
+@end
+
+
 @interface DFTitleCellView : UIView
 
-@property (strong, nonatomic, nullable) UIView *backV;
+@property (strong, nonatomic, nullable) DFTouchColorView *contentV;
 
 @property (strong, nonatomic, nullable) UIImageView *l_titleImgV;
 @property (strong, nonatomic, nullable) WLVerticalAlignmentLabel *l_starL;

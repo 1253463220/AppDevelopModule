@@ -42,8 +42,23 @@ fileprivate var key = "badgeLabel"
     }
 }
 
+//圆角
+@objc extension UIView{
+    ///指定位置的圆角
+    func clipLayerRadius(radius:CGFloat,corner:UIRectCorner){
+        self.superview?.layoutIfNeeded()
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: radius, height: radius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+    }
+    
+    
+}
 
-extension UIScrollView {
+
+@objc extension UIScrollView {
     /// 截长屏Image
     var captureLongImage: UIImage? {
         var image: UIImage? = nil
