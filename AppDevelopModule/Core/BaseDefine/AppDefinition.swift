@@ -15,7 +15,8 @@ public struct VMSize {
     /// 屏幕高度
     public static let height = UIScreen.main.bounds.size.height
     /// 比例
-    public static let scale = (UIScreen.main.bounds.size.width/CGFloat(375) + UIScreen.main.bounds.size.height/CGFloat(667))*0.5
+    public static let wScale = (UIScreen.main.bounds.size.width/CGFloat(375))
+    public static let hScale = (UIScreen.main.bounds.size.height/CGFloat(812))
     //状态栏高度
     public static let statusbarHeight = UIApplication.shared.statusBarFrame.size.height
     //navigtionbar高度
@@ -38,7 +39,6 @@ public struct VMSize {
     }
 }
 public typealias vmsi = VMSize
-public let scale = VMSize.scale
 
 public struct VMJudge {
     
@@ -51,73 +51,69 @@ public struct VMJudge {
         return judge(str, predicate: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{2,}")
     }
     
+    
     /// 网址校验
     public static func judgeUrl(with str: String) -> Bool {
         return judge(str, predicate: "(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]")
     }
-    ///用户名验证
-    public static func judgeUserName(with str:String) -> Bool{
-        return judge(str, predicate: "(?=.*[a-zA-Z])[0-9a-zA-Z]{4,16}")
+    
+    /// 是否是链接校验
+    public static func judgeLink(with str: String) -> Bool {
+        return judge(str, predicate: "(([hH][tT]{2}[pP]://|[hH][tT]{2}[pP][sS]://|[wW]{3}.|[wW][aA][pP].|[fF][tT][pP].|[fF][iI][lL][eE].)[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])" + "|" +
+                        "[a-zA-Z0-9][-a-zA-Z0-9]{1,62}(.[a-zA-Z0-9][-a-zA-Z0-9]{1,62})+.?[a-zA-Z][-a-zA-Z]{2,6}")
     }
-    /// 密码验证
-    public static func judgePassword(with str: String) -> Bool {
-//        return judge(str, predicate: "(?!^\\d+$)(?!^[A-Za-z]+$)(?!^[^A-Za-z0-9]+$)^\\S{8,16}$")
-        return judge(str, predicate: "(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9])[ -~]{8,16}")
-    }
+    
     
     public static func judge(_ str: String, predicate: String) -> Bool {
         return NSPredicate(format: "SELF MATCHES %@", predicate).evaluate(with: str)
     }
 }
 
-// MARK: - 延时函数
-public typealias DelayTask = (_ cancel : Bool) -> Void
-/// 延迟一定时间执行一个闭包
-///
-/// - Parameters:
-///   - time: 延迟时间
-///   - task: 执行的闭包
-/// - Returns: 返回一个任务(用于取消执行)
-@discardableResult
-public func delay(_ time: TimeInterval, task: @escaping ()->()) ->  DelayTask? {
-    
-    func dispatch_later(block: @escaping ()->()) {
-        let t = DispatchTime.now() + time
-        DispatchQueue.main.asyncAfter(deadline: t, execute: block)
-    }
-    var closure: (()->Void)? = task
-    var result: DelayTask?
-    
-    let delayedClosure: DelayTask = { cancel in
-        if let internalClosure = closure {
-            if (cancel == false) {
-                DispatchQueue.main.async(execute: internalClosure)
+public struct VMFunc {
+    // MARK: - 延时函数
+    public typealias DelayTask = (_ cancel : Bool) -> Void
+    /// 延迟一定时间执行一个闭包
+    ///
+    /// - Parameters:
+    ///   - time: 延迟时间
+    ///   - task: 执行的闭包
+    /// - Returns: 返回一个任务(用于取消执行)
+    @discardableResult
+    public func delay(_ time: TimeInterval, task: @escaping ()->()) ->  DelayTask? {
+        
+        func dispatch_later(block: @escaping ()->()) {
+            let t = DispatchTime.now() + time
+            DispatchQueue.main.asyncAfter(deadline: t, execute: block)
+        }
+        var closure: (()->Void)? = task
+        var result: DelayTask?
+        
+        let delayedClosure: DelayTask = { cancel in
+            if let internalClosure = closure {
+                if (cancel == false) {
+                    DispatchQueue.main.async(execute: internalClosure)
+                }
+            }
+            closure = nil
+            result = nil
+        }
+        
+        result = delayedClosure
+        
+        dispatch_later {
+            if let delayedClosure = result {
+                delayedClosure(false)
             }
         }
-        closure = nil
-        result = nil
+        return result
     }
-    
-    result = delayedClosure
-    
-    dispatch_later {
-        if let delayedClosure = result {
-            delayedClosure(false)
-        }
+
+    /// 取消任务
+    ///
+    /// - Parameter task: 执行的任务
+    public func delayCancle(_ task: DelayTask?) {
+        task?(true)
     }
-    return result
-}
-
-/// 取消任务
-///
-/// - Parameter task: 执行的任务
-public func delayCancle(_ task: DelayTask?) {
-    task?(true)
-}
-
-
-public struct VMFunc {
-    
 }
 
 extension VMFunc{

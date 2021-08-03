@@ -67,3 +67,29 @@ public struct FuncTool {
     }
     
 }
+
+/**
+ 最大连续子数组和
+ */
+public func maxSumAndRange(from arr:[Int])->(sum:Int,range:(Int,Int)){
+    var resultMax = 0
+    var tempMax = 0
+    var tempRange = (0,0)
+    var resultRange = (0,0)
+    for (index,num) in arr.enumerated() {
+        if tempMax+num > 0 {
+            tempRange.1 = index
+            tempMax = tempMax+num
+        }else{
+            tempRange.0 = index+1
+            tempRange.1 = index+1
+            tempMax = 0
+        }
+        if resultMax < tempMax {
+            resultMax = tempMax
+            resultRange = tempRange
+        }
+    }
+//    print(resultMax,resultRange)
+    return (resultMax,resultRange)
+}

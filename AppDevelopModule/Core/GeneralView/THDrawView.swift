@@ -7,7 +7,7 @@
 
 import UIKit
 import Foundation
-//MARK: 三次贝塞尔曲线
+//MARK: 三次贝塞尔曲线，画图视图
 class THDrawView: UIView {
     private let beizer = UIBezierPath()
     private let shapelayer = CAShapeLayer()

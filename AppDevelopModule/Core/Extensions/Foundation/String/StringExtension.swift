@@ -91,22 +91,17 @@ extension String{
     
     ///链接中的参数字典
     public func urlParameters()->[String:String]{
-        let index = self.firstIndex(of: "?")
-        if let tIndex = index{
-            let trueIndex = self.index(after: tIndex)
-            let str = self.substring(from: trueIndex)
-            let arr = str.components(separatedBy: "&")
-            var dic : [String:String] = [:]
-            for tstr in arr {
-                let tarr = tstr.components(separatedBy: "=")
-                if tarr.count == 2{
-                    dic.updateValue(tarr[1], forKey: tarr[0])
-                }
-            }
-            return dic
-        }else{
+        guard let url = URL(string: self) else {
             return [:]
         }
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false), let queryItems = components.queryItems else {
+            return [:]
+        }
+        var items: [String: String] = [:]
+        for queryItem in queryItems {
+            items[queryItem.name] = queryItem.value
+        }
+        return items
     }
 }
 
@@ -114,12 +109,19 @@ extension String{
     public func width(fontSize: CGFloat, height: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return ceil(rect.width)
+        return rect.width
     }
     
     public func height(fontSize: CGFloat, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return ceil(rect.height)
+        return rect.height
+    }
+}
+
+extension String{
+    func isEmptyWipeSpace()->Bool{
+        let str = self.replacingOccurrences(of: " ", with: "")
+        return str.isEmpty
     }
 }

@@ -25,8 +25,8 @@ public class MutiSelectView: WindowCallOutView ,UITableViewDelegate,UITableViewD
     private var endAct : EndSelect?
     
     private let padding : CGFloat = 5
-    private let rowHeight = 40*scale
-    private let btnH = 40*scale
+    private let rowHeight : CGFloat = 40
+    private let btnH : CGFloat = 40
     lazy private var tableH : CGFloat = {
         var tableH = CGFloat(dataArr.count)*rowHeight
         if tableH >= 200{
@@ -66,13 +66,13 @@ public class MutiSelectView: WindowCallOutView ,UITableViewDelegate,UITableViewD
         tableV.tableFooterView = UIView()
         tableV.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableV.frame = CGRect(x: 5, y: padding, width: contentV.frame.size.width-2*padding, height: tableH)
-        tableV.separatorInset = UIEdgeInsets(top: 0, left: 10*scale, bottom: 0, right: 10*scale)
+        tableV.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
         let btn = UIButton(type: .system)
         btn.setTitle("确定", for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14*scale)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.bounds = CGRect(x: 0, y: 0, width: contentV.frame.size.width, height: btnH)
-        btn.center = CGPoint(x: contentV.frame.size.width/2, y: tableV.frame.maxY+20*scale+padding)
+        btn.center = CGPoint(x: contentV.frame.size.width/2, y: tableV.frame.maxY+20+padding)
         btn.addTarget(self, action: #selector(tapSure), for: .touchUpInside)
         contentV.addSubview(btn)
     }
@@ -111,7 +111,7 @@ public class MutiSelectView: WindowCallOutView ,UITableViewDelegate,UITableViewD
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40*scale
+        return 40
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

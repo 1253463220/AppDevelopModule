@@ -49,8 +49,6 @@ iOS App开发工具集合,以Swift为主。
   s.subspec 'Hud' do |ss|
     ss.source_files = 'AppDevelopModule/Hud/**/*.{h,m,swift}'
     ss.dependency 'AppDevelopModule/Core'
-    ss.dependency 'MBProgressHUD'
-    ss.dependency 'SVProgressHUD'
     ss.dependency 'NVActivityIndicatorView'
   end
   

@@ -76,6 +76,120 @@ fileprivate var key = "badgeLabel"
         contentOffset = savedContentOffset
         layer.frame = savedFrame
         return image
-        
+    }
+}
+
+@objc extension UIView {
+    /// 截长屏Image
+    @objc var captureImage: UIImage? {
+        var image: UIImage? = nil
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
+// 给视图添加渐变色layer
+extension UIView {
+    enum GradientColorDirection {
+        case leftright
+        case topdown
+    }
+    
+    ///加渐变色背景
+    func addGradientColorLayer(startColor:UIColor,endColor:UIColor,direction:GradientColorDirection, colorSize:CGSize){
+        let layer = CAGradientLayer()
+        layer.frame = CGRect.init(x: 0, y: 0, width: colorSize.width, height: colorSize.height)
+        layer.colors = [startColor.cgColor,endColor.cgColor]
+        layer.locations = [0,1]
+        switch direction {
+        case .leftright:
+            layer.startPoint = CGPoint(x: 0, y: 0)
+            layer.endPoint = CGPoint(x: 1, y: 0)
+        case .topdown:
+            layer.startPoint = CGPoint(x: 0, y: 0)
+            layer.endPoint = CGPoint(x: 0, y: 1)
+        }
+        self.layer.insertSublayer(layer, at: 0)
+    }
+    
+    func removeGradientColorLayer(){
+        if self.layer.sublayers != nil{
+            for layer in self.layer.sublayers! {
+                if layer is CAGradientLayer{
+                    layer.removeFromSuperlayer()
+                    break
+                }
+            }
+        }
+    }
+}
+
+//scale动画
+@objc extension UIView{
+    ///scales:缩放比例数组
+    @objc func addBounceAnnimation(scales:[Double] = [0.05,1.1,0.9,1],duration:Double = 0.3) {
+        let animation = CAKeyframeAnimation.init(keyPath:"transform.scale")
+        animation.values = scales
+        animation.duration = duration
+        var functions = [CAMediaTimingFunction]()
+        for _ in scales {
+            let function = CAMediaTimingFunction.init(name: .easeInEaseOut)
+            functions.append(function)
+        }
+        animation.timingFunctions = functions
+        animation.isRemovedOnCompletion = false
+        self.layer.add(animation, forKey: "bounce")
+    }
+    
+    ///弹跳动画
+    @objc func addJumpAnnimation() {
+        let positions = [self.center,
+                         .init(x: self.center.x, y: self.center.y-self.frame.size.height*2/5),
+                         self.center]
+        let animation = CAKeyframeAnimation.init(keyPath:"position")
+        animation.values = positions
+        animation.duration = 0.5
+        var functions = [CAMediaTimingFunction]()
+        for _ in positions {
+            let function = CAMediaTimingFunction.init(name: .easeOut)
+            functions.append(function)
+        }
+        animation.timingFunctions = functions
+        animation.isRemovedOnCompletion = false
+        self.layer.add(animation, forKey: "position")
+    }
+}
+
+//Loading
+fileprivate var loadingKey = "loadingKey"
+@objc extension UIView {
+    @objc func showLoading(color:UIColor){
+        let loadingView = objc_getAssociatedObject(self, &loadingKey) as? UIActivityIndicatorView
+        if loadingView == nil {
+            let loadingV = UIActivityIndicatorView.init(style: .white)
+            objc_setAssociatedObject(self, &loadingKey, loadingV, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            self.addSubview(loadingV)
+            loadingV.color = color
+            loadingV.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                loadingV.topAnchor.constraint(equalTo: self.topAnchor),
+                loadingV.leftAnchor.constraint(equalTo: self.leftAnchor),
+                loadingV.rightAnchor.constraint(equalTo: self.rightAnchor),
+                loadingV.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
+            loadingV.startAnimating()
+        }else{
+            loadingView?.startAnimating()
+        }
+    }
+    
+    @objc func hideLoading(){
+        let loadingView = objc_getAssociatedObject(self, &loadingKey) as? UIActivityIndicatorView
+        if loadingView != nil {
+            loadingView!.stopAnimating()
+        }
     }
 }

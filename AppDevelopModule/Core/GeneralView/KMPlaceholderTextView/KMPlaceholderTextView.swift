@@ -24,29 +24,29 @@
 import UIKit
 
 @IBDesignable
-open class KMPlaceholderTextView: UITextView {
+@objc open class KMPlaceholderTextView: UITextView {
     
     private struct Constants {
         static let defaultiOSPlaceholderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0980392, alpha: 0.22)
     }
   
-    public let placeholderLabel: UILabel = UILabel()
+    @objc public let placeholderLabel: UILabel = UILabel()
     
     private var placeholderLabelConstraints = [NSLayoutConstraint]()
     
-    @IBInspectable open var placeholder: String = "" {
+    @objc @IBInspectable open var placeholder: String = "" {
         didSet {
             placeholderLabel.text = placeholder
         }
     }
     
-    @IBInspectable open var placeholderColor: UIColor = KMPlaceholderTextView.Constants.defaultiOSPlaceholderColor {
+    @objc @IBInspectable open var placeholderColor: UIColor = KMPlaceholderTextView.Constants.defaultiOSPlaceholderColor {
         didSet {
             placeholderLabel.textColor = placeholderColor
         }
     }
     
-    override open var font: UIFont! {
+    @objc override open var font: UIFont! {
         didSet {
             if placeholderFont == nil {
                 placeholderLabel.font = font
@@ -54,43 +54,50 @@ open class KMPlaceholderTextView: UITextView {
         }
     }
     
-    open var placeholderFont: UIFont? {
+    @objc open var placeholderFont: UIFont? {
         didSet {
             let font = (placeholderFont != nil) ? placeholderFont : self.font
             placeholderLabel.font = font
         }
     }
     
-    override open var textAlignment: NSTextAlignment {
+    @objc override open var textAlignment: NSTextAlignment {
         didSet {
             placeholderLabel.textAlignment = textAlignment
         }
     }
     
-    override open var text: String! {
+    @objc override open var text: String! {
         didSet {
             textDidChange()
         }
     }
     
-    override open var attributedText: NSAttributedString! {
+    @objc override open var attributedText: NSAttributedString! {
         didSet {
             textDidChange()
         }
     }
     
-    override open var textContainerInset: UIEdgeInsets {
+    @objc override open var textContainerInset: UIEdgeInsets {
         didSet {
             updateConstraintsForPlaceholderLabel()
         }
     }
     
-    override public init(frame: CGRect, textContainer: NSTextContainer?) {
+    @objc open var lineFragmentPadding: CGFloat = 0{
+        didSet {
+            self.textContainer.lineFragmentPadding = lineFragmentPadding
+            updateConstraintsForPlaceholderLabel()
+        }
+    }
+    
+    @objc override public init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         commonInit()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    @objc required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -145,7 +152,7 @@ open class KMPlaceholderTextView: UITextView {
         placeholderLabel.isHidden = !text.isEmpty
     }
     
-    open override func layoutSubviews() {
+    @objc open override func layoutSubviews() {
         super.layoutSubviews()
         placeholderLabel.preferredMaxLayoutWidth = textContainer.size.width - textContainer.lineFragmentPadding * 2.0
     }
@@ -162,4 +169,8 @@ open class KMPlaceholderTextView: UITextView {
             object: nil)
     }
     
+    @objc open var contentH : CGFloat{
+        let size = ((self.text ?? "") as NSString).boundingRect(with: CGSize.init(width: self.frame.size.width-self.contentInset.left-self.contentInset.right, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:self.font!], context: nil)
+        return size.height+self.contentInset.top+self.contentInset.bottom
+    }
 }
