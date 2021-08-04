@@ -15,8 +15,7 @@ import UIKit
     case imageLeftTitleRight
     case imageRightTitleLeft
 }
-fileprivate var imageTitlePositionKey = "imageTitlePositionKey"
-fileprivate var imageTitleDistanceKey = "imageTitleDistanceKey"
+
 @objc extension UIButton{
     public func relayoutImgTitle(style:ImageTitlePostion,imgTitleSpace space:CGFloat) {
         let imageSize = self.imageView?.intrinsicContentSize ?? CGSize.zero
@@ -27,23 +26,23 @@ fileprivate var imageTitleDistanceKey = "imageTitleDistanceKey"
         case .imageUpTitleDown:
             imageTop = -(labelSize.height/2+space/2)
             imageBottom = (labelSize.height/2+space/2)
-            imageLeft = labelSize.width/2-imageSize.width/2
-            imageRight = 0
+            imageLeft = labelSize.width/2
+            imageRight = -labelSize.width/2
             
             titleTop = imageSize.height/2+space/2
             titleBottom = -(imageSize.height/2+space/2)
-            titleLeft = -imageSize.width
-            titleRight = 0
+            titleLeft = -imageSize.width/2
+            titleRight = imageSize.width/2
         case .imageDownTitleUp:
             imageTop = (labelSize.height/2+space/2)
             imageBottom = -(labelSize.height/2+space/2)
-            imageLeft = labelSize.width/2-imageSize.width/2
-            imageRight = 0
+            imageLeft = -labelSize.width/2
+            imageRight = labelSize.width/2
             
             titleTop = -imageSize.height/2+space/2
             titleBottom = (imageSize.height/2+space/2)
-            titleLeft = -imageSize.width
-            titleRight = 0
+            titleLeft = imageSize.width/2
+            titleRight = -imageSize.width/2
         case .imageLeftTitleRight:
             imageTop = 0
             imageBottom = 0
@@ -67,8 +66,6 @@ fileprivate var imageTitleDistanceKey = "imageTitleDistanceKey"
         }
         self.imageEdgeInsets = UIEdgeInsets(top: imageTop, left: imageLeft, bottom: imageBottom, right: imageRight)
         self.titleEdgeInsets = UIEdgeInsets(top: titleTop, left: titleLeft, bottom: titleBottom, right: titleRight)
-        objc_setAssociatedObject(self, &imageTitlePositionKey, style, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        objc_setAssociatedObject(self, &imageTitleDistanceKey, space, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
     
@@ -82,19 +79,10 @@ fileprivate var imageTitleDistanceKey = "imageTitleDistanceKey"
         self.contentEdgeInsets = UIEdgeInsets(top: yOffset, left: 0, bottom: -yOffset, right: 0)
     }
     
-    ///内容size
-    public func intrinsicSize()->CGSize{
-        let type = (objc_getAssociatedObject(self, &imageTitlePositionKey) as? ImageTitlePostion) ?? .imageLeftTitleRight
-        let space = (objc_getAssociatedObject(self, &imageTitleDistanceKey) as? CGFloat) ?? 0
-        switch type {
-        case .imageLeftTitleRight,.imageRightTitleLeft:
-            return CGSize.init(width: self.intrinsicContentSize.width+space, height: self.intrinsicContentSize.height)
-        case .imageUpTitleDown,.imageDownTitleUp:
-            let cRect = CGRect.init(x: 0, y: 0, width: self.intrinsicContentSize.width, height: self.intrinsicContentSize.height)
-            let imageSize = self.imageRect(forContentRect: cRect)
-            let titleSize = self.titleRect(forContentRect: cRect)
-            return CGSize.init(width: max(imageSize.width, titleSize.width), height: imageSize.height+titleSize.height+space)
-        }
+    ///改变图片文字j间距
+    public func changeImageTitleDistance(distance:CGFloat) {
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -distance/2, bottom: 0, right: distance/2)
+        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: distance/2, bottom: 0, right: distance/2)
     }
     
 }

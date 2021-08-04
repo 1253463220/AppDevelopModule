@@ -85,10 +85,13 @@ import UIKit
         }
     }
     
-    @objc open var lineFragmentPadding: CGFloat = 0{
-        didSet {
-            self.textContainer.lineFragmentPadding = lineFragmentPadding
+    @objc open var lineFragmentPadding: CGFloat{
+        set{
+            self.textContainer.lineFragmentPadding = newValue
             updateConstraintsForPlaceholderLabel()
+        }
+        get{
+            self.textContainer.lineFragmentPadding
         }
     }
     
@@ -170,7 +173,6 @@ import UIKit
     }
     
     @objc open var contentH : CGFloat{
-        let size = ((self.text ?? "") as NSString).boundingRect(with: CGSize.init(width: self.frame.size.width-self.contentInset.left-self.contentInset.right, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:self.font!], context: nil)
-        return size.height+self.contentInset.top+self.contentInset.bottom
+        return self.sizeThatFits(CGSize.init(width: self.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
     }
 }
