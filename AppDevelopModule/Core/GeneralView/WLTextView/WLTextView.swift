@@ -29,44 +29,67 @@ import UIKit
     @objc private func textChanged(noti:Notification){
         if let textView = noti.object as? WLTextView,textView == self{
             if limitTextCount > 0 { //文字个数限制
-                let textStr = textView.text ?? ""
-                let mode = UITextInputMode.activeInputModes.first
-                let lang = mode?.primaryLanguage
-                if let languge = lang,languge == "zh-Hans" {
-                    let range = textView.markedTextRange ?? UITextRange.init()
-                    let position = textView.position(from: range.start, offset: 0)
-                    if position == nil {
-                        if textStr.count > limitTextCount {
-                            self.text = textStr.substring(toIndex: limitTextCount)
-                        }
-                    }
-                }else{
-                    if textStr.count > limitTextCount {
-                        self.text = textStr.substring(toIndex: limitTextCount)
-                    }
-                }
+                doLimitTextCount(textView: textView)
             }
             guard self.lastText != self.text else {
                 return
             }
             lastText = self.text
+            self.textChangedBlock?(self,self.text)
             
             if autoChangeHeight, minHeight > 0, maxHeight > 0 { //高度限制
-                var finalH = self.contentH
-                if finalH < minHeight {
-                    finalH = minHeight
-                }else if finalH > maxHeight{
-                    finalH = maxHeight
+                updateHieght()
+                self.heightChangeBlock?(self,self.fitHeight())
+            }
+        }
+    }
+    
+    private func doLimitTextCount(textView:UITextView){
+        let textStr = textView.text ?? ""
+        let mode = UITextInputMode.activeInputModes.first
+        let lang = mode?.primaryLanguage
+        if let languge = lang,languge == "zh-Hans" {
+            let range = textView.markedTextRange ?? UITextRange.init()
+            let position = textView.position(from: range.start, offset: 0)
+            if position == nil {
+                if textStr.count > limitTextCount {
+                    self.text = textStr.substring(toIndex: limitTextCount)
                 }
+            }
+        }else{
+            if textStr.count > limitTextCount {
+                self.text = textStr.substring(toIndex: limitTextCount)
+            }
+        }
+    }
+    
+    @objc func fitHeight()->CGFloat{
+        if minHeight == -1 || maxHeight == -1 {
+            return self.contentH
+        }
+        var finalH = self.contentH
+        if finalH < minHeight {
+            finalH = minHeight
+        }else if finalH > maxHeight{
+            finalH = maxHeight
+        }
+        return finalH
+    }
+    
+    ///updateAction返回值：是否执行默认操作
+    @objc func updateHieght(_ updateAction:(()->Bool)? = nil){
+        DispatchQueue.main.async {//不要删除这个异步操作
+            let doDefaultAction = updateAction?() ?? true
+            
+            if doDefaultAction{
+                let finalH = self.fitHeight()
                 for cons in self.constraints {
                     if cons.firstAnchor == self.heightAnchor {
                         cons.constant = finalH
                     }
                 }
                 self.frame = CGRect.init(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: finalH)
-                self.heightChangeBlock?(self,finalH)
             }
-            self.textChangedBlock?(self,self.text)
         }
     }
     
