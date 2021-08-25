@@ -11,8 +11,10 @@ import UIKit
 @objc class WLTextView: KMPlaceholderTextView {
     
     @objc var limitTextCount : Int = -1
+    ///默认false，为true时，必须同时设置minHeight和maxHeight才能生效
     @objc var autoChangeHeight = false
     @objc var minHeight : CGFloat = -1
+    ///maxHeight为0表示不限制最大高度
     @objc var maxHeight : CGFloat = -1
     @objc var heightChangeBlock : ((_ textView:WLTextView,_ height:CGFloat)->Void)?
     @objc var textChangedBlock : ((_ textView:WLTextView,_ text:String)->Void)?
@@ -38,7 +40,7 @@ import UIKit
             lastText = self.text
             self.textChangedBlock?(self,self.text)
             
-            if autoChangeHeight, minHeight > 0, maxHeight > 0 { //高度限制
+            if autoChangeHeight, minHeight > 0, maxHeight >= 0 { //高度限制
                 updateHieght()
                 self.heightChangeBlock?(self,self.fitHeight())
             }
@@ -95,13 +97,15 @@ import UIKit
     }
     
     
-    @objc func fitHeight()->CGFloat{
+    @objc func fitHeight(forWidth:CGFloat = -1)->CGFloat{
         if minHeight == -1 || maxHeight == -1 {
-            return self.contentH
+            return self.contentH(forWidth: forWidth)
         }
-        var finalH = self.contentH
+        var finalH = self.contentH(forWidth: forWidth)
         if finalH < minHeight {
             finalH = minHeight
+        }else if maxHeight == 0{
+            return finalH
         }else if finalH > maxHeight{
             finalH = maxHeight
         }

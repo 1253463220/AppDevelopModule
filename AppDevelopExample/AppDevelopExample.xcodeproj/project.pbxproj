@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81274B4C26CCECF200015F22 /* EdgePanableScroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81274B4B26CCECF200015F22 /* EdgePanableScroView.swift */; };
+		8135D2BC26C4BFCA00507B7D /* BMChineseSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135D2BA26C4BFCA00507B7D /* BMChineseSort.m */; };
 		81576DC7250A1EAA00D5A30C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576DC6250A1EAA00D5A30C /* AppDelegate.swift */; };
 		81576DC9250A1EAA00D5A30C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576DC8250A1EAA00D5A30C /* SceneDelegate.swift */; };
 		81576DCB250A1EAA00D5A30C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576DCA250A1EAA00D5A30C /* ViewController.swift */; };
@@ -31,6 +33,9 @@
 		508559AF1C040609886F78A2 /* Pods-AppDevelopExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDevelopExample.release.xcconfig"; path = "Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample.release.xcconfig"; sourceTree = "<group>"; };
 		7A8A45EC8CC887B36E43F219 /* Pods-AppDevelopExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDevelopExample.debug.xcconfig"; path = "Target Support Files/Pods-AppDevelopExample/Pods-AppDevelopExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8106E3B0264E6A7900207B40 /* AppDevelopExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDevelopExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		81274B4B26CCECF200015F22 /* EdgePanableScroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgePanableScroView.swift; sourceTree = "<group>"; };
+		8135D2BA26C4BFCA00507B7D /* BMChineseSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMChineseSort.m; sourceTree = "<group>"; };
+		8135D2BB26C4BFCA00507B7D /* BMChineseSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMChineseSort.h; sourceTree = "<group>"; };
 		81576DC3250A1EAA00D5A30C /* AppDevelopExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDevelopExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81576DC6250A1EAA00D5A30C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81576DC8250A1EAA00D5A30C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +215,14 @@
 				508559AF1C040609886F78A2 /* Pods-AppDevelopExample.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		81274B4A26CCECF200015F22 /* EdgePanableScroView */ = {
+			isa = PBXGroup;
+			children = (
+				81274B4B26CCECF200015F22 /* EdgePanableScroView.swift */,
+			);
+			path = EdgePanableScroView;
 			sourceTree = "<group>";
 		};
 		81576DBA250A1EAA00D5A30C = {
@@ -583,6 +596,7 @@
 				81A5C75626807DF400012894 /* MutiSelectView.swift */,
 				81A5C75726807DF400012894 /* THDrawView.swift */,
 				81A5C75826807DF400012894 /* WindowCallOutView.swift */,
+				81274B4A26CCECF200015F22 /* EdgePanableScroView */,
 				816B13EF26BA63BE00FE8CA8 /* WLTextView */,
 				81F9E43026B7D29E001C8998 /* WLPaddingLabel */,
 				81F9E42B26B7D289001C8998 /* CusTextField */,
@@ -621,6 +635,8 @@
 		81A5C7C126807DF400012894 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				8135D2BB26C4BFCA00507B7D /* BMChineseSort.h */,
+				8135D2BA26C4BFCA00507B7D /* BMChineseSort.m */,
 				81A5C7B526807DF400012894 /* AppKeychainIdentifer.h */,
 				81A5C7B626807DF400012894 /* AppKeychainIdentifer.m */,
 				81A5C7B726807DF400012894 /* ApplicationManager.h */,
@@ -941,8 +957,10 @@
 				81F9E42E26B7D289001C8998 /* MaxLengthTextField.swift in Sources */,
 				81576DC7250A1EAA00D5A30C /* AppDelegate.swift in Sources */,
 				81576DC9250A1EAA00D5A30C /* SceneDelegate.swift in Sources */,
+				81274B4C26CCECF200015F22 /* EdgePanableScroView.swift in Sources */,
 				816B13F426BA63BE00FE8CA8 /* KMPlaceholderTextView.swift in Sources */,
 				81F9E42926B7D22C001C8998 /* CornerContainerView.swift in Sources */,
+				8135D2BC26C4BFCA00507B7D /* BMChineseSort.m in Sources */,
 				81F9E43326B7D29E001C8998 /* WLPaddingLabel.m in Sources */,
 				816B13F326BA63BE00FE8CA8 /* WLTextView.swift in Sources */,
 				81F9E42F26B7D289001C8998 /* MaxNumberTextField.swift in Sources */,

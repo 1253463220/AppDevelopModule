@@ -69,13 +69,13 @@ import UIKit
     
     @objc override open var text: String! {
         didSet {
-            textDidChange()
+            hidePlaceholderIfNeed()
         }
     }
     
     @objc override open var attributedText: NSAttributedString! {
         didSet {
-            textDidChange()
+            hidePlaceholderIfNeed()
         }
     }
     
@@ -113,7 +113,7 @@ import UIKit
         #endif
       
         NotificationCenter.default.addObserver(self,
-            selector: #selector(textDidChange),
+            selector: #selector(textDidChange(noti:)),
             name: notificationName,
             object: nil)
         
@@ -151,7 +151,13 @@ import UIKit
         placeholderLabelConstraints = newConstraints
     }
     
-    @objc private func textDidChange() {
+    @objc private func textDidChange(noti:Notification) {
+        if let textView = noti.object as? KMPlaceholderTextView,textView == self{
+            hidePlaceholderIfNeed()
+        }
+    }
+    
+    private func hidePlaceholderIfNeed(){
         placeholderLabel.isHidden = !text.isEmpty
     }
     
@@ -172,7 +178,8 @@ import UIKit
             object: nil)
     }
     
-    @objc open var contentH : CGFloat{
-        return self.sizeThatFits(CGSize.init(width: self.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
+    @objc func contentH(forWidth:CGFloat = -1) -> CGFloat{
+        let width = (forWidth == -1) ? self.frame.size.width : forWidth
+        return self.sizeThatFits(CGSize.init(width: width, height: CGFloat.greatestFiniteMagnitude)).height
     }
 }

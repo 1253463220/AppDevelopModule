@@ -43,7 +43,7 @@
 /**获取最上层UIWindow*/
 + (UIWindow *)topWindow;
 /**生成二维码*/
-+ (UIImage *)generateQRCode:(NSString *)dataStr size:(CGSize)size;
++ (void)generateQRCode:(NSString *)dataStr size:(CGSize)size complete:(void (^)(UIImage*))complete;
 /**获取字符串(或汉字)首字母*/
 + (NSString *)firstCharacterWithString:(NSString *)string;
 /**将字符串数组按照元素首字母顺序进行排序分组*/

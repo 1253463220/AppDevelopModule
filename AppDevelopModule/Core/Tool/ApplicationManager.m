@@ -192,17 +192,25 @@
 }
 
 #pragma mark - 生成二维码
-+ (UIImage *)generateQRCode:(NSString *)dataStr size:(CGSize)size{
-    // 1.创建过滤器 -- 苹果没有将这个字符封装成常量
-    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    // 2.过滤器恢复默认设置
-    [filter setDefaults];
-    // 3.给过滤器添加数据(正则表达式/帐号和密码) -- 通过KVC设置过滤器,只能设置NSData类型
-    NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-    [filter setValue:data forKeyPath:@"inputMessage"];
-    // 4.获取输出的二维码
-    CIImage *outputImage = [filter outputImage];
-    return [ApplicationManager createNonInterpolatedUIImageFormCIImage:outputImage withSize:size];
++ (void)generateQRCode:(NSString *)dataStr size:(CGSize)size complete:(void (^_Nonnull)(UIImage*))complete{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 1.创建过滤器 -- 苹果没有将这个字符封装成常量
+        CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+        // 2.过滤器恢复默认设置
+        [filter setDefaults];
+        // 3.给过滤器添加数据(正则表达式/帐号和密码) -- 通过KVC设置过滤器,只能设置NSData类型
+        NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        [filter setValue:data forKeyPath:@"inputMessage"];
+        // 4.获取输出的二维码
+        CIImage *outputImage = [filter outputImage];
+        UIImage *resultImg = [ApplicationManager createNonInterpolatedUIImageFormCIImage:outputImage withSize:size];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (complete != nil) {
+                complete(resultImg);
+            }
+        });
+    });
 }
 
 + (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGSize)size
