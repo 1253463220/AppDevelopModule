@@ -10,32 +10,31 @@ import UIKit
 
 @objc class WLScroContentView: UIView {
     
-    private var scroV = UIScrollView()
+    var scroV = UIScrollView()
     private var contentV = UIView()
-    private var baseStackV = UIStackView()
-    var contentEdge = UIEdgeInsets.zero
+    var baseStackV = UIStackView()
+    private var contentEdge = UIEdgeInsets.zero
     var itemSpace : CGFloat = 0{
         didSet{
-            baseStackV.spacing = itemSpace
+            self.baseStackV.spacing = itemSpace
         }
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
+        
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.contentEdge = .zero
+        self.itemSpace = 0
+        self.wl_configUI()
     }
     
-    init(contentEdge:UIEdgeInsets,itemSpace:CGFloat) {
+    init(contentEdge:UIEdgeInsets = .zero,itemSpace:CGFloat = 0) {
         super.init(frame: .zero)
         self.contentEdge = contentEdge
         self.itemSpace = itemSpace
-        self.configUI()
+        self.wl_configUI()
     }
     
-    func configUI(){
+    private func wl_configUI(){
         addSubview(scroV)
         scroV.addSubview(contentV)
         contentV.addSubview(baseStackV)
@@ -75,6 +74,12 @@ import UIKit
     func add(views:[UIView]){
         for (_,tview) in views.enumerated() {
             baseStackV.addArrangedSubview(tview)
+        }
+    }
+    
+    func clearContent(){
+        for subV in baseStackV.subviews {
+            subV.removeFromSuperview()
         }
     }
 

@@ -25,6 +25,12 @@
 		81F9E42E26B7D289001C8998 /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9E42C26B7D289001C8998 /* MaxLengthTextField.swift */; };
 		81F9E42F26B7D289001C8998 /* MaxNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9E42D26B7D289001C8998 /* MaxNumberTextField.swift */; };
 		81F9E43326B7D29E001C8998 /* WLPaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9E43226B7D29E001C8998 /* WLPaddingLabel.m */; };
+		8421659127103D9B005AAB5A /* JBubbleTips.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421658A27103D9B005AAB5A /* JBubbleTips.m */; };
+		8421659227103D9B005AAB5A /* JBubbleTips+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421658B27103D9B005AAB5A /* JBubbleTips+Draw.m */; };
+		8421659327103D9B005AAB5A /* JBubbleTips+Calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421658C27103D9B005AAB5A /* JBubbleTips+Calculate.m */; };
+		8421659427103D9B005AAB5A /* UIView+JUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421658D27103D9B005AAB5A /* UIView+JUtils.m */; };
+		8421659527103D9B005AAB5A /* JBubbleTips+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421659027103D9B005AAB5A /* JBubbleTips+Action.m */; };
+		8421659827103E0A005AAB5A /* WLMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421659727103E0A005AAB5A /* WLMenuView.swift */; };
 		C32B05CA15937CB91FD024ED /* Pods_AppDevelopExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A34C1F8B27FE11B78FF4F06 /* Pods_AppDevelopExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +198,17 @@
 		81F9E42D26B7D289001C8998 /* MaxNumberTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxNumberTextField.swift; sourceTree = "<group>"; };
 		81F9E43126B7D29E001C8998 /* WLPaddingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPaddingLabel.h; sourceTree = "<group>"; };
 		81F9E43226B7D29E001C8998 /* WLPaddingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLPaddingLabel.m; sourceTree = "<group>"; };
+		8421658527103D9B005AAB5A /* JBubbleTips+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JBubbleTips+Draw.h"; sourceTree = "<group>"; };
+		8421658627103D9B005AAB5A /* JBubbleTips+Calculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JBubbleTips+Calculate.h"; sourceTree = "<group>"; };
+		8421658827103D9B005AAB5A /* UIView+JUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JUtils.h"; sourceTree = "<group>"; };
+		8421658927103D9B005AAB5A /* JBubbleTips+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JBubbleTips+Action.h"; sourceTree = "<group>"; };
+		8421658A27103D9B005AAB5A /* JBubbleTips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBubbleTips.m; sourceTree = "<group>"; };
+		8421658B27103D9B005AAB5A /* JBubbleTips+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JBubbleTips+Draw.m"; sourceTree = "<group>"; };
+		8421658C27103D9B005AAB5A /* JBubbleTips+Calculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JBubbleTips+Calculate.m"; sourceTree = "<group>"; };
+		8421658D27103D9B005AAB5A /* UIView+JUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JUtils.m"; sourceTree = "<group>"; };
+		8421658F27103D9B005AAB5A /* JBubbleTips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBubbleTips.h; sourceTree = "<group>"; };
+		8421659027103D9B005AAB5A /* JBubbleTips+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JBubbleTips+Action.m"; sourceTree = "<group>"; };
+		8421659727103E0A005AAB5A /* WLMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,6 +609,8 @@
 				81A5C75626807DF400012894 /* MutiSelectView.swift */,
 				81A5C75726807DF400012894 /* THDrawView.swift */,
 				81A5C75826807DF400012894 /* WindowCallOutView.swift */,
+				8421659627103E0A005AAB5A /* WLMenuView */,
+				8421658427103D9B005AAB5A /* JBubbleTips */,
 				81274B4A26CCECF200015F22 /* EdgePanableScroView */,
 				816B13EF26BA63BE00FE8CA8 /* WLTextView */,
 				81F9E43026B7D29E001C8998 /* WLPaddingLabel */,
@@ -825,6 +844,47 @@
 			path = WLPaddingLabel;
 			sourceTree = "<group>";
 		};
+		8421658427103D9B005AAB5A /* JBubbleTips */ = {
+			isa = PBXGroup;
+			children = (
+				8421658527103D9B005AAB5A /* JBubbleTips+Draw.h */,
+				8421658627103D9B005AAB5A /* JBubbleTips+Calculate.h */,
+				8421658727103D9B005AAB5A /* Classes */,
+				8421658827103D9B005AAB5A /* UIView+JUtils.h */,
+				8421658927103D9B005AAB5A /* JBubbleTips+Action.h */,
+				8421658A27103D9B005AAB5A /* JBubbleTips.m */,
+				8421658B27103D9B005AAB5A /* JBubbleTips+Draw.m */,
+				8421658C27103D9B005AAB5A /* JBubbleTips+Calculate.m */,
+				8421658D27103D9B005AAB5A /* UIView+JUtils.m */,
+				8421658E27103D9B005AAB5A /* Assets */,
+				8421658F27103D9B005AAB5A /* JBubbleTips.h */,
+				8421659027103D9B005AAB5A /* JBubbleTips+Action.m */,
+			);
+			path = JBubbleTips;
+			sourceTree = "<group>";
+		};
+		8421658727103D9B005AAB5A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8421658E27103D9B005AAB5A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		8421659627103E0A005AAB5A /* WLMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				8421659727103E0A005AAB5A /* WLMenuView.swift */,
+			);
+			path = WLMenuView;
+			sourceTree = "<group>";
+		};
 		D9A8F6BF73568E2D91FDC163 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,18 +1011,24 @@
 			files = (
 				81576DCB250A1EAA00D5A30C /* ViewController.swift in Sources */,
 				81F9E42E26B7D289001C8998 /* MaxLengthTextField.swift in Sources */,
+				8421659527103D9B005AAB5A /* JBubbleTips+Action.m in Sources */,
 				81576DC7250A1EAA00D5A30C /* AppDelegate.swift in Sources */,
 				81576DC9250A1EAA00D5A30C /* SceneDelegate.swift in Sources */,
 				81274B4C26CCECF200015F22 /* EdgePanableScroView.swift in Sources */,
 				816B13F426BA63BE00FE8CA8 /* KMPlaceholderTextView.swift in Sources */,
 				81F9E42926B7D22C001C8998 /* CornerContainerView.swift in Sources */,
 				8135D2BC26C4BFCA00507B7D /* BMChineseSort.m in Sources */,
+				8421659827103E0A005AAB5A /* WLMenuView.swift in Sources */,
 				81F9E43326B7D29E001C8998 /* WLPaddingLabel.m in Sources */,
 				816B13F326BA63BE00FE8CA8 /* WLTextView.swift in Sources */,
 				81F9E42F26B7D289001C8998 /* MaxNumberTextField.swift in Sources */,
+				8421659327103D9B005AAB5A /* JBubbleTips+Calculate.m in Sources */,
 				81F9E42626B7D213001C8998 /* GradientColorView.swift in Sources */,
 				81A7500C2682DF3900B3F366 /* UILabel+Click.m in Sources */,
+				8421659427103D9B005AAB5A /* UIView+JUtils.m in Sources */,
 				819F4E6D268B1D4000E59F3D /* NDAlertController.m in Sources */,
+				8421659127103D9B005AAB5A /* JBubbleTips.m in Sources */,
+				8421659227103D9B005AAB5A /* JBubbleTips+Draw.m in Sources */,
 				81A5C7E426807E2700012894 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
