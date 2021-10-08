@@ -848,33 +848,17 @@
 			isa = PBXGroup;
 			children = (
 				8421658527103D9B005AAB5A /* JBubbleTips+Draw.h */,
-				8421658627103D9B005AAB5A /* JBubbleTips+Calculate.h */,
-				8421658727103D9B005AAB5A /* Classes */,
-				8421658827103D9B005AAB5A /* UIView+JUtils.h */,
-				8421658927103D9B005AAB5A /* JBubbleTips+Action.h */,
-				8421658A27103D9B005AAB5A /* JBubbleTips.m */,
 				8421658B27103D9B005AAB5A /* JBubbleTips+Draw.m */,
+				8421658627103D9B005AAB5A /* JBubbleTips+Calculate.h */,
 				8421658C27103D9B005AAB5A /* JBubbleTips+Calculate.m */,
-				8421658D27103D9B005AAB5A /* UIView+JUtils.m */,
-				8421658E27103D9B005AAB5A /* Assets */,
-				8421658F27103D9B005AAB5A /* JBubbleTips.h */,
+				8421658927103D9B005AAB5A /* JBubbleTips+Action.h */,
 				8421659027103D9B005AAB5A /* JBubbleTips+Action.m */,
+				8421658827103D9B005AAB5A /* UIView+JUtils.h */,
+				8421658D27103D9B005AAB5A /* UIView+JUtils.m */,
+				8421658F27103D9B005AAB5A /* JBubbleTips.h */,
+				8421658A27103D9B005AAB5A /* JBubbleTips.m */,
 			);
 			path = JBubbleTips;
-			sourceTree = "<group>";
-		};
-		8421658727103D9B005AAB5A /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		8421658E27103D9B005AAB5A /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		8421659627103E0A005AAB5A /* WLMenuView */ = {
