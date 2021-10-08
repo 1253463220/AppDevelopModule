@@ -75,7 +75,14 @@ import UIKit
         return finalImage ?? self
         
     }
-    
-    
+}
 
+@objc extension UIImage{
+    @objc public func scale(newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContext(newSize)
+        self.draw(in: CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return finalImage ?? self
+    }
 }

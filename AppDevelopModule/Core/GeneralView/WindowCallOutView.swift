@@ -13,7 +13,7 @@ import UIKit
     var shouldTapDismiss = false
     // MARK: 生命周期
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapBackContent(ges:)))
         tap.delegate = self

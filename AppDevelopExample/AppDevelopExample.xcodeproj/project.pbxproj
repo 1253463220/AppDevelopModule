@@ -55,8 +55,6 @@
 		81A5C73526807DF400012894 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		81A5C73726807DF400012894 /* NumberExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
 		81A5C73926807DF400012894 /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
-		81A5C73A26807DF400012894 /* NSURL+QMUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+QMUI.h"; sourceTree = "<group>"; };
-		81A5C73B26807DF400012894 /* NSURL+QMUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+QMUI.m"; sourceTree = "<group>"; };
 		81A5C73C26807DF400012894 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		81A5C73E26807DF400012894 /* SwiftTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
 		81A5C74126807DF400012894 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
@@ -329,8 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				81A5C73926807DF400012894 /* NSMutableAttributedStringExtension.swift */,
-				81A5C73A26807DF400012894 /* NSURL+QMUI.h */,
-				81A5C73B26807DF400012894 /* NSURL+QMUI.m */,
 				81A5C73C26807DF400012894 /* StringExtension.swift */,
 			);
 			path = String;

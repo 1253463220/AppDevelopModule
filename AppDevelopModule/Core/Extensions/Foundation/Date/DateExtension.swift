@@ -42,7 +42,7 @@ extension String{
     @objc public func toDate(_ currentFormatter: String = "yyyy-MM-dd HH:mm:ss") -> NSDate {
         let format = DateFormatter()
         format.dateFormat = currentFormatter
-        return (format.date(from: self as String) as? NSDate) ?? NSDate(timeIntervalSince1970: 0) as NSDate
+        return (format.date(from: self as String) ?? Date(timeIntervalSince1970: 0)) as NSDate
     }
     
     @objc public func changeDateFormatter(_ oldFormatter:String = "yyyy-MM-dd HH:mm:ss",_ newFormatter:String) -> String {
