@@ -18,8 +18,8 @@
     }
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, self.bubbleColor.CGColor);
-    UIBezierPath *bubblePath = [UIBezierPath bezierPathWithRoundedRect:bubbleFrame cornerRadius:self.cornerRadius];
+    CGContextSetFillColorWithColor(context, self.config.bubbleColor.CGColor);
+    UIBezierPath *bubblePath = [UIBezierPath bezierPathWithRoundedRect:bubbleFrame cornerRadius:self.config.cornerRadius];
     CGContextAddPath(context, bubblePath.CGPath);
     UIBezierPath *arrowPath = [self arrowPath];
     CGContextAddPath(context, arrowPath.CGPath);
@@ -32,24 +32,24 @@
     CGPoint p1 = self.arrowPoint, p2, p3;
     switch (self.direction) {
         case JBubbleTipsDirectionUp:{
-            p2 = CGPointMake(p1.x + self.pointerSize, p1.y + self.pointerSize);
-            p3 = CGPointMake(p1.x - self.pointerSize, p1.y + self.pointerSize);
+            p2 = CGPointMake(p1.x + self.config.pointerSize, p1.y + self.config.pointerSize);
+            p3 = CGPointMake(p1.x - self.config.pointerSize, p1.y + self.config.pointerSize);
         }
             break;
         case JBubbleTipsDirectionDown:{
-            p2 = CGPointMake(p1.x + self.pointerSize, p1.y - self.pointerSize);
-            p3 = CGPointMake(p1.x - self.pointerSize, p1.y - self.pointerSize);
+            p2 = CGPointMake(p1.x + self.config.pointerSize, p1.y - self.config.pointerSize);
+            p3 = CGPointMake(p1.x - self.config.pointerSize, p1.y - self.config.pointerSize);
             
         }
             break;
         case JBubbleTipsDirectionLeft: {
-            p2 = CGPointMake(p1.x + self.pointerSize, p1.y - self.pointerSize);
-            p3 = CGPointMake(p1.x + self.pointerSize, p1.y + self.pointerSize);
+            p2 = CGPointMake(p1.x + self.config.pointerSize, p1.y - self.config.pointerSize);
+            p3 = CGPointMake(p1.x + self.config.pointerSize, p1.y + self.config.pointerSize);
         }
             break;
         case JBubbleTipsDirectionRight: {
-            p2 = CGPointMake(p1.x - self.pointerSize, p1.y + self.pointerSize);
-            p3 = CGPointMake(p1.x - self.pointerSize, p1.y - self.pointerSize);
+            p2 = CGPointMake(p1.x - self.config.pointerSize, p1.y + self.config.pointerSize);
+            p3 = CGPointMake(p1.x - self.config.pointerSize, p1.y - self.config.pointerSize);
         }
             break;
     }
@@ -65,16 +65,16 @@
     CGRect frame;
     switch (self.direction) {
         case JBubbleTipsDirectionUp:
-            frame = CGRectMake(0, self.arrowPoint.y + self.pointerSize, self.bubbleSize.width, self.bubbleSize.height);
+            frame = CGRectMake(0, self.arrowPoint.y + self.config.pointerSize, self.bubbleSize.width, self.bubbleSize.height);
             break;
         case JBubbleTipsDirectionDown:
             frame = CGRectMake(0, 0, self.bubbleSize.width, self.bubbleSize.height);
             break;
         case JBubbleTipsDirectionLeft:
-            frame = CGRectMake(self.arrowPoint.x + self.pointerSize, 0, self.bubbleSize.width, self.bubbleSize.height);
+            frame = CGRectMake(self.arrowPoint.x + self.config.pointerSize, 0, self.bubbleSize.width, self.bubbleSize.height);
             break;
         case JBubbleTipsDirectionRight:
-            frame = CGRectMake(self.arrowPoint.x - self.pointerSize - self.bubbleSize.width, 0, self.bubbleSize.width, self.bubbleSize.height);
+            frame = CGRectMake(self.arrowPoint.x - self.config.pointerSize - self.bubbleSize.width, 0, self.bubbleSize.width, self.bubbleSize.height);
             break;
     }
     return frame;

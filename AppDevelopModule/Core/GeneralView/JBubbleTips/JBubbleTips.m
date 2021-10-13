@@ -11,6 +11,30 @@
 #import "UIView+JUtils.h"
 #import "JBubbleTips+Draw.h"
 
+@implementation JBubbleConfig
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.textAlignment = NSTextAlignmentLeft;
+        self.textColor = [UIColor whiteColor];
+        self.textFont = [UIFont systemFontOfSize:14];
+        
+        self.bubbleColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        self.cornerRadius = 5.f;
+        self.pointerSize = 8.f;
+        self.pointerOffset = CGPointZero;
+        self.bubbleContentInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        self.slidePadding = 5.f;
+        self.maxTextWidth = CGFLOAT_MAX;
+        self.lineSpacing = 5.f;
+    }
+    return self;
+}
+
+@end
+
 @interface JBubbleTips()<UITextViewDelegate>
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UITextView *textView;
@@ -20,29 +44,41 @@
 @implementation JBubbleTips
 
 #pragma mark - init
-- (instancetype)initWithText:(NSString *)text direction:(JBubbleTipsDirection)direction {
-    self = [self init];
-    self.text = text;
-    self.direction = direction;
-    return self;
-}
-
-- (instancetype)initWithAttributedString:(NSAttributedString *)attributedString direction:(JBubbleTipsDirection)direction {
-    self = [self init];
-    self.attributedString = attributedString;
-    self.direction = direction;
-    return self;
-}
-
-- (instancetype)initWithCustomView:(UIView *)customView direction:(JBubbleTipsDirection)direction {
-    self = [self init];
-    self.customView = customView;
-    self.direction = direction;
-    return self;
-}
-
-- (instancetype)init {
+- (instancetype)initWithText:(NSString *)text direction:(JBubbleTipsDirection)direction config:(JBubbleConfig *)config{
     if (self = [super init]) {
+        self.config = config;
+        [self setup];
+        self.text = text;
+        self.direction = direction;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithAttributedString:(NSAttributedString *)attributedString direction:(JBubbleTipsDirection)direction config:(JBubbleConfig *)config {
+    if (self = [super init]) {
+        self.config = config;
+        [self setup];
+        self.attributedString = attributedString;
+        self.direction = direction;
+    }
+    return self;
+}
+
+- (instancetype)initWithCustomView:(UIView *)customView direction:(JBubbleTipsDirection)direction config:(JBubbleConfig *)config {
+    if (self = [super init]) {
+        self.config = config;
+        [self setup];
+        self.customView = customView;
+        self.direction = direction;
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
         [self setup];
     }
     return self;
@@ -56,20 +92,6 @@
 - (void)initDefaultProperties {
     self.opaque = NO;
     self.backgroundColor = [UIColor clearColor];
-   
-    self.textAlignment = NSTextAlignmentLeft;
-    self.textColor = [UIColor whiteColor];
-    self.textFont = [UIFont systemFontOfSize:14];
-    
-    self.bubbleColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
-    self.cornerRadius = 5.f;
-    self.pointerSize = 8.f;
-    self.pointerOffset = CGPointZero;
-    self.bubbleContentInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-    self.slidePadding = 5.f;
-    self.direction = JBubbleTipsDirectionUp;
-    self.maxTextWidth = CGFLOAT_MAX;
-    self.lineSpacing = 5.f;
 }
 
 - (void)initSubViews {
@@ -79,7 +101,7 @@
 - (void)layoutSubviews {
     CGRect bubbleFrame = [self bubbleFrame];
     self.contentView.frame = bubbleFrame;
-    UIEdgeInsets insets = self.bubbleContentInsets;
+    UIEdgeInsets insets = self.config.bubbleContentInsets;
     self.textView.frame = CGRectMake(insets.left, insets.top, bubbleFrame.size.width - insets.left - insets.right, bubbleFrame.size.height - insets.top - insets.bottom);
     if (self.customView) {
         self.customView.frame = CGRectMake(insets.left, insets.top, self.customView.jb_width, self.customView.jb_height);
@@ -198,6 +220,13 @@
         _textView.delegate = self;
     }
     return _textView;
+}
+
+- (JBubbleConfig *)config{
+    if (!_config) {
+        _config = [[JBubbleConfig alloc] init];
+    }
+    return _config;
 }
 
 @end

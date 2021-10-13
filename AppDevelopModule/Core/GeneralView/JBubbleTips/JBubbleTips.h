@@ -28,7 +28,9 @@ typedef NS_ENUM(NSInteger, JBubbleTipsStyle) {
 - (void)bubbleTips:(JBubbleTips *)bubbleTips didClickInRange:(NSRange)range url:(NSURL *)url;
 @end
 
-@interface JBubbleTips : UIView
+
+@interface JBubbleConfig : NSObject
+
 //气泡相关属性
 @property (nonatomic, strong) UIColor *bubbleColor;
 @property (nonatomic, assign) CGFloat cornerRadius;
@@ -45,6 +47,13 @@ typedef NS_ENUM(NSInteger, JBubbleTipsStyle) {
 @property (nonatomic, assign) CGFloat maxTextWidth;
 @property (nonatomic, assign) CGFloat lineSpacing;
 
+@end
+
+
+@interface JBubbleTips : UIView
+
+@property (strong, nonatomic) JBubbleConfig *config;
+
 //Tips中显示的内容
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSAttributedString *attributedString;
@@ -53,9 +62,9 @@ typedef NS_ENUM(NSInteger, JBubbleTipsStyle) {
 @property (nonatomic, assign, readonly) JBubbleTipsStyle style;
 @property (nonatomic, weak) id<JBubbleTipsDelegate> delegate;
 
-- (instancetype)initWithText:(NSString *)text direction:(JBubbleTipsDirection)direction;
-- (instancetype)initWithAttributedString:(NSAttributedString *)attributedString direction:(JBubbleTipsDirection)direction;
-- (instancetype)initWithCustomView:(UIView *)customView direction:(JBubbleTipsDirection)direction;
+- (instancetype)initWithText:(NSString *)text direction:(JBubbleTipsDirection)direction config:(JBubbleConfig *)config;
+- (instancetype)initWithAttributedString:(NSAttributedString *)attributedString direction:(JBubbleTipsDirection)direction config:(JBubbleConfig *)config;
+- (instancetype)initWithCustomView:(UIView *)customView direction:(JBubbleTipsDirection)direction config:(JBubbleConfig *)config;
 
 - (void)pointAtView:(UIView *)targetView inView:(UIView *)containerView;
 - (void)pointAtPosition:(CGPoint)targetPoint inView:(UIView *)containerView;
