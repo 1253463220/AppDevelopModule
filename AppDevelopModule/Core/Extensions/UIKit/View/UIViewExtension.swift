@@ -193,3 +193,13 @@ fileprivate var loadingKey = "loadingKey"
         }
     }
 }
+
+extension UIScrollView{
+    public func scroToBottom(){
+        if self.contentSize.height > self.frame.height {
+            self.setContentOffset(CGPoint.init(x: 0, y: self.contentSize.height-self.frame.height), animated: true)
+        }else{
+            self.setContentOffset(CGPoint.zero, animated: true)
+        }
+    }
+}

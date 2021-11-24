@@ -10,20 +10,21 @@ import UIKit
 
 class WLMenuView: WLScroContentView {
     
-    typealias IndicatorUIConfigAct = (_ index:Int,_ itemV:WLMenuItemView)->UIView
+    typealias IndicatorUIConfigAct = (_ index:Int,_ itemV:WLMenuItemView,_ menuV:WLMenuView)->UIView
+    typealias IndicatorIndexChangeAct = (_ index:Int,_ itemV:WLMenuItemView,_ menuV:WLMenuView,_ indicatorV:UIView?)->Void
     private(set) var itemArr = [WLMenuItemView]()
     private(set) var selectedIndex : Int?
     var indexWillChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Bool)?
     var indexDidChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Void)?
     private var indicatorV : UIView?//指示view
     private var selectedItemV : WLMenuItemView?
-    private var indicatorConfig : IndicatorUIConfigAct?
+    private var indicatorIndexChangeAct : IndicatorIndexChangeAct?
     // MARK: 生命周期
     init(itemArr:[WLMenuItemView],selectedIndex:Int? = 0,itemSpace:CGFloat = 0) {
         super.init(contentEdge: .zero, itemSpace: itemSpace)
         self.itemArr = itemArr
         self.selectedIndex = selectedIndex
-        configUI()
+        updateUI()
     }
     
     required init?(coder: NSCoder) {
@@ -31,7 +32,8 @@ class WLMenuView: WLScroContentView {
     }
     
     // MARK: 界面
-    private func configUI() {
+    func updateUI() {
+        self.clearContent()
         for (index,itemV) in itemArr.enumerated() {
             if index == selectedIndex {
                 self.selectedItemV = itemV
@@ -47,12 +49,11 @@ class WLMenuView: WLScroContentView {
         add(views: itemArr)
     }
     
-    func configIndicator(configAct:@escaping IndicatorUIConfigAct){
+    func configIndicator(configAct:@escaping IndicatorUIConfigAct,indexChangeAct:@escaping IndicatorIndexChangeAct){
         guard let tSelectIndex = self.selectedIndex else {return}
         guard let tSelectItemV = self.selectedItemV else {return}
-        self.indicatorV = configAct(tSelectIndex,tSelectItemV)
-        self.indicatorConfig = configAct
-        self.addSubview(self.indicatorV!)
+        self.indicatorV = configAct(tSelectIndex,tSelectItemV,self)
+        self.indicatorIndexChangeAct = indexChangeAct
     }
     
     // MARK: 数据
@@ -63,8 +64,8 @@ class WLMenuView: WLScroContentView {
     }
     
     // MARK: 逻辑
-    func gotoIndex(_ index:Int,animated:Bool = true){
-        guard index != selectedIndex else {return}
+    func gotoIndex(_ index:Int?,animated:Bool = true){
+        guard let index = index,index != selectedIndex else {return}
         guard index >= 0,index < itemArr.count else {return}
         
         let act : (()->Void) = {
@@ -78,7 +79,7 @@ class WLMenuView: WLScroContentView {
                 self.selectedItemV = itemV
                 self.indexDidChanged?(index,itemV)
                 self.selectedItemV?.selectUIConfig(itemV)
-                _ = self.indicatorConfig?(index,itemV)
+                self.indicatorIndexChangeAct?(index,itemV,self,self.indicatorV)
             }
         }
         
@@ -103,11 +104,9 @@ class WLMenuItemView: UIButton {
     typealias UIConfig = (WLMenuItemView)->Void
     var normalUIConfig : UIConfig!
     var selectUIConfig : UIConfig!
-    var titleStr = ""
     
-    init(normalUIConfig:@escaping UIConfig,selectUIConfig:@escaping UIConfig,title:String) {
+    init(normalUIConfig:@escaping UIConfig,selectUIConfig:@escaping UIConfig) {
         super.init(frame: .zero)
-        self.titleStr = title
         self.normalUIConfig = normalUIConfig
         self.selectUIConfig = selectUIConfig
     }
