@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class CornerContainerView: UIView {
+@objc class WLCornerContainerView: UIView {
     
     enum ConerStyle {
         case top

@@ -10,9 +10,10 @@ import UIKit
 
 class WLMenuView: WLScroContentView {
     
-    typealias IndicatorUIConfigAct = (_ index:Int,_ itemV:WLMenuItemView,_ menuV:WLMenuView)->UIView
-    typealias IndicatorIndexChangeAct = (_ index:Int,_ itemV:WLMenuItemView,_ menuV:WLMenuView,_ indicatorV:UIView?)->Void
+    typealias IndicatorUIConfigAct = (_ index:Int?,_ itemV:WLMenuItemView?,_ menuV:WLMenuView)->UIView
+    typealias IndicatorIndexChangeAct = (_ index:Int?,_ itemV:WLMenuItemView?,_ menuV:WLMenuView,_ indicatorV:UIView?)->Void
     private(set) var itemArr = [WLMenuItemView]()
+    private(set) var defaultIndex : Int? = 0
     private(set) var selectedIndex : Int?
     var indexWillChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Bool)?
     var indexDidChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Void)?
@@ -23,6 +24,7 @@ class WLMenuView: WLScroContentView {
     init(itemArr:[WLMenuItemView],selectedIndex:Int? = 0,itemSpace:CGFloat = 0) {
         super.init(contentEdge: .zero, itemSpace: itemSpace)
         self.itemArr = itemArr
+        self.defaultIndex = selectedIndex
         self.selectedIndex = selectedIndex
         updateUI()
     }
@@ -33,20 +35,32 @@ class WLMenuView: WLScroContentView {
     
     // MARK: 界面
     func updateUI() {
-        self.clearContent()
-        for (index,itemV) in itemArr.enumerated() {
-            if index == selectedIndex {
-                self.selectedItemV = itemV
-                itemV.selectUIConfig(itemV)
-            }else{
-                itemV.normalUIConfig(itemV)
+        UIView.performWithoutAnimation {
+            self.clearContent()
+            if self.selectedIndex ?? 0 >= itemArr.count {
+                self.selectedIndex = defaultIndex
             }
-            itemV.addTapAction {[weak self] ges in
-                guard let self = self else {return}
-                self.tap(index: index)
+            for (index,itemV) in itemArr.enumerated() {
+                if index == selectedIndex {
+                    self.selectedItemV = itemV
+                    itemV.selectUIConfig(itemV)
+                }else{
+                    itemV.normalUIConfig(itemV)
+                }
+                itemV.addTapAction {[weak self] ges in
+                    guard let self = self else {return}
+                    self.tap(index: index)
+                }
             }
+            add(views: itemArr)
+            self.indicatorIndexChangeAct?(self.selectedIndex,self.selectedItemV,self,self.indicatorV)
         }
-        add(views: itemArr)
+    }
+    
+    func updateMenuItems(itemArr:[WLMenuItemView],defaultIndex:Int? = 0){
+        self.itemArr = itemArr
+        self.defaultIndex = defaultIndex
+        updateUI()
     }
     
     func configIndicator(configAct:@escaping IndicatorUIConfigAct,indexChangeAct:@escaping IndicatorIndexChangeAct){

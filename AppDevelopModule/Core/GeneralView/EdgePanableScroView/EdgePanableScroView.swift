@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class EdgePanableScroView: UIScrollView ,UIGestureRecognizerDelegate{
+@objc class WLEdgePanableScroView: UIScrollView ,UIGestureRecognizerDelegate{
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if isEdgePan(ges: gestureRecognizer) {

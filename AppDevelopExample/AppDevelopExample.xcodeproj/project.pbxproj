@@ -26,6 +26,21 @@
 		81F9E42F26B7D289001C8998 /* MaxNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9E42D26B7D289001C8998 /* MaxNumberTextField.swift */; };
 		81F9E43326B7D29E001C8998 /* WLPaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9E43226B7D29E001C8998 /* WLPaddingLabel.m */; };
 		8421659827103E0A005AAB5A /* WLMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421659727103E0A005AAB5A /* WLMenuView.swift */; };
+		846235A127605BED00F64C2D /* ChinaMapWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462359B27605BED00F64C2D /* ChinaMapWithName.m */; };
+		846235A227605BED00F64C2D /* provinceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8462359D27605BED00F64C2D /* provinceInfo.plist */; };
+		846235A327605BED00F64C2D /* ChinaMapPaths.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8462359E27605BED00F64C2D /* ChinaMapPaths.plist */; };
+		846235A427605BED00F64C2D /* ChinaMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462359F27605BED00F64C2D /* ChinaMapView.m */; };
+		846235C127605BF400F64C2D /* BRResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235A727605BF400F64C2D /* BRResultModel.m */; };
+		846235C227605BF400F64C2D /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235AA27605BF400F64C2D /* BRStringPickerView.m */; };
+		846235C327605BF400F64C2D /* BRDatePickerView+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235AD27605BF400F64C2D /* BRDatePickerView+BR.m */; };
+		846235C427605BF400F64C2D /* NSDate+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235AF27605BF400F64C2D /* NSDate+BRPickerView.m */; };
+		846235C527605BF400F64C2D /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235B027605BF400F64C2D /* BRDatePickerView.m */; };
+		846235C627605BF400F64C2D /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 846235B627605BF400F64C2D /* BRPickerView.bundle */; };
+		846235C727605BF400F64C2D /* BRPickerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235B727605BF400F64C2D /* BRPickerStyle.m */; };
+		846235C827605BF400F64C2D /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235B827605BF400F64C2D /* BRBaseView.m */; };
+		846235C927605BF400F64C2D /* NSBundle+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235B927605BF400F64C2D /* NSBundle+BRPickerView.m */; };
+		846235CA27605BF400F64C2D /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235BD27605BF400F64C2D /* BRAddressModel.m */; };
+		846235CB27605BF400F64C2D /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846235C027605BF400F64C2D /* BRAddressPickerView.m */; };
 		84DAA2A62716B5A900E2DF4B /* JBubbleTips.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAA2A02716B5A900E2DF4B /* JBubbleTips.m */; };
 		84DAA2A72716B5A900E2DF4B /* JBubbleTips+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAA2A12716B5A900E2DF4B /* JBubbleTips+Draw.m */; };
 		84DAA2A82716B5A900E2DF4B /* JBubbleTips+Calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAA2A22716B5A900E2DF4B /* JBubbleTips+Calculate.m */; };
@@ -199,6 +214,35 @@
 		81F9E43126B7D29E001C8998 /* WLPaddingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPaddingLabel.h; sourceTree = "<group>"; };
 		81F9E43226B7D29E001C8998 /* WLPaddingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLPaddingLabel.m; sourceTree = "<group>"; };
 		8421659727103E0A005AAB5A /* WLMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLMenuView.swift; sourceTree = "<group>"; };
+		8462359A27605BED00F64C2D /* ChinaMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChinaMapView.h; sourceTree = "<group>"; };
+		8462359B27605BED00F64C2D /* ChinaMapWithName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChinaMapWithName.m; sourceTree = "<group>"; };
+		8462359D27605BED00F64C2D /* provinceInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = provinceInfo.plist; sourceTree = "<group>"; };
+		8462359E27605BED00F64C2D /* ChinaMapPaths.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ChinaMapPaths.plist; sourceTree = "<group>"; };
+		8462359F27605BED00F64C2D /* ChinaMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChinaMapView.m; sourceTree = "<group>"; };
+		846235A027605BED00F64C2D /* ChinaMapWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChinaMapWithName.h; sourceTree = "<group>"; };
+		846235A727605BF400F64C2D /* BRResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRResultModel.m; sourceTree = "<group>"; };
+		846235A827605BF400F64C2D /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
+		846235A927605BF400F64C2D /* BRResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRResultModel.h; sourceTree = "<group>"; };
+		846235AA27605BF400F64C2D /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
+		846235AB27605BF400F64C2D /* BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerView.h; sourceTree = "<group>"; };
+		846235AD27605BF400F64C2D /* BRDatePickerView+BR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BRDatePickerView+BR.m"; sourceTree = "<group>"; };
+		846235AE27605BF400F64C2D /* BRDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDatePickerView.h; sourceTree = "<group>"; };
+		846235AF27605BF400F64C2D /* NSDate+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRPickerView.m"; sourceTree = "<group>"; };
+		846235B027605BF400F64C2D /* BRDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRDatePickerView.m; sourceTree = "<group>"; };
+		846235B127605BF400F64C2D /* BRDatePickerView+BR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRDatePickerView+BR.h"; sourceTree = "<group>"; };
+		846235B227605BF400F64C2D /* NSDate+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRPickerView.h"; sourceTree = "<group>"; };
+		846235B427605BF400F64C2D /* NSBundle+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+BRPickerView.h"; sourceTree = "<group>"; };
+		846235B527605BF400F64C2D /* BRPickerViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerViewMacro.h; sourceTree = "<group>"; };
+		846235B627605BF400F64C2D /* BRPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BRPickerView.bundle; sourceTree = "<group>"; };
+		846235B727605BF400F64C2D /* BRPickerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPickerStyle.m; sourceTree = "<group>"; };
+		846235B827605BF400F64C2D /* BRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
+		846235B927605BF400F64C2D /* NSBundle+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+BRPickerView.m"; sourceTree = "<group>"; };
+		846235BA27605BF400F64C2D /* BRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
+		846235BB27605BF400F64C2D /* BRPickerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerStyle.h; sourceTree = "<group>"; };
+		846235BD27605BF400F64C2D /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
+		846235BE27605BF400F64C2D /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
+		846235BF27605BF400F64C2D /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
+		846235C027605BF400F64C2D /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
 		84DAA29C2716B5A900E2DF4B /* JBubbleTips+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JBubbleTips+Draw.h"; sourceTree = "<group>"; };
 		84DAA29D2716B5A900E2DF4B /* JBubbleTips+Calculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JBubbleTips+Calculate.h"; sourceTree = "<group>"; };
 		84DAA29E2716B5A900E2DF4B /* UIView+JUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JUtils.h"; sourceTree = "<group>"; };
@@ -609,6 +653,8 @@
 				81A5C75626807DF400012894 /* MutiSelectView.swift */,
 				81A5C75726807DF400012894 /* THDrawView.swift */,
 				81A5C75826807DF400012894 /* WindowCallOutView.swift */,
+				846235A527605BF400F64C2D /* BRPickerView */,
+				8462359927605BED00F64C2D /* ChinaMapView */,
 				84DAA29B2716B5A900E2DF4B /* JBubbleTips */,
 				8421659627103E0A005AAB5A /* WLMenuView */,
 				81274B4A26CCECF200015F22 /* EdgePanableScroView */,
@@ -852,6 +898,89 @@
 			path = WLMenuView;
 			sourceTree = "<group>";
 		};
+		8462359927605BED00F64C2D /* ChinaMapView */ = {
+			isa = PBXGroup;
+			children = (
+				8462359A27605BED00F64C2D /* ChinaMapView.h */,
+				8462359B27605BED00F64C2D /* ChinaMapWithName.m */,
+				8462359C27605BED00F64C2D /* resouse */,
+				8462359F27605BED00F64C2D /* ChinaMapView.m */,
+				846235A027605BED00F64C2D /* ChinaMapWithName.h */,
+			);
+			path = ChinaMapView;
+			sourceTree = "<group>";
+		};
+		8462359C27605BED00F64C2D /* resouse */ = {
+			isa = PBXGroup;
+			children = (
+				8462359D27605BED00F64C2D /* provinceInfo.plist */,
+				8462359E27605BED00F64C2D /* ChinaMapPaths.plist */,
+			);
+			path = resouse;
+			sourceTree = "<group>";
+		};
+		846235A527605BF400F64C2D /* BRPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				846235A627605BF400F64C2D /* StringPickerView */,
+				846235AB27605BF400F64C2D /* BRPickerView.h */,
+				846235AC27605BF400F64C2D /* DatePickerView */,
+				846235B327605BF400F64C2D /* Base */,
+				846235BC27605BF400F64C2D /* AddressPickerView */,
+			);
+			path = BRPickerView;
+			sourceTree = "<group>";
+		};
+		846235A627605BF400F64C2D /* StringPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				846235A727605BF400F64C2D /* BRResultModel.m */,
+				846235A827605BF400F64C2D /* BRStringPickerView.h */,
+				846235A927605BF400F64C2D /* BRResultModel.h */,
+				846235AA27605BF400F64C2D /* BRStringPickerView.m */,
+			);
+			path = StringPickerView;
+			sourceTree = "<group>";
+		};
+		846235AC27605BF400F64C2D /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				846235AD27605BF400F64C2D /* BRDatePickerView+BR.m */,
+				846235AE27605BF400F64C2D /* BRDatePickerView.h */,
+				846235AF27605BF400F64C2D /* NSDate+BRPickerView.m */,
+				846235B027605BF400F64C2D /* BRDatePickerView.m */,
+				846235B127605BF400F64C2D /* BRDatePickerView+BR.h */,
+				846235B227605BF400F64C2D /* NSDate+BRPickerView.h */,
+			);
+			path = DatePickerView;
+			sourceTree = "<group>";
+		};
+		846235B327605BF400F64C2D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				846235B427605BF400F64C2D /* NSBundle+BRPickerView.h */,
+				846235B527605BF400F64C2D /* BRPickerViewMacro.h */,
+				846235B627605BF400F64C2D /* BRPickerView.bundle */,
+				846235B727605BF400F64C2D /* BRPickerStyle.m */,
+				846235B827605BF400F64C2D /* BRBaseView.m */,
+				846235B927605BF400F64C2D /* NSBundle+BRPickerView.m */,
+				846235BA27605BF400F64C2D /* BRBaseView.h */,
+				846235BB27605BF400F64C2D /* BRPickerStyle.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		846235BC27605BF400F64C2D /* AddressPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				846235BD27605BF400F64C2D /* BRAddressModel.m */,
+				846235BE27605BF400F64C2D /* BRAddressPickerView.h */,
+				846235BF27605BF400F64C2D /* BRAddressModel.h */,
+				846235C027605BF400F64C2D /* BRAddressPickerView.m */,
+			);
+			path = AddressPickerView;
+			sourceTree = "<group>";
+		};
 		84DAA29B2716B5A900E2DF4B /* JBubbleTips */ = {
 			isa = PBXGroup;
 			children = (
@@ -940,6 +1069,9 @@
 			files = (
 				81576DD3250A1EAB00D5A30C /* LaunchScreen.storyboard in Resources */,
 				81576DD0250A1EAB00D5A30C /* Assets.xcassets in Resources */,
+				846235C627605BF400F64C2D /* BRPickerView.bundle in Resources */,
+				846235A327605BED00F64C2D /* ChinaMapPaths.plist in Resources */,
+				846235A227605BED00F64C2D /* provinceInfo.plist in Resources */,
 				81576DCE250A1EAA00D5A30C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -994,17 +1126,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				81576DCB250A1EAA00D5A30C /* ViewController.swift in Sources */,
+				846235C727605BF400F64C2D /* BRPickerStyle.m in Sources */,
+				846235C427605BF400F64C2D /* NSDate+BRPickerView.m in Sources */,
+				846235A127605BED00F64C2D /* ChinaMapWithName.m in Sources */,
 				81F9E42E26B7D289001C8998 /* MaxLengthTextField.swift in Sources */,
 				81576DC7250A1EAA00D5A30C /* AppDelegate.swift in Sources */,
 				81576DC9250A1EAA00D5A30C /* SceneDelegate.swift in Sources */,
 				84DAA2A72716B5A900E2DF4B /* JBubbleTips+Draw.m in Sources */,
+				846235C127605BF400F64C2D /* BRResultModel.m in Sources */,
+				846235A427605BED00F64C2D /* ChinaMapView.m in Sources */,
 				81274B4C26CCECF200015F22 /* EdgePanableScroView.swift in Sources */,
+				846235C827605BF400F64C2D /* BRBaseView.m in Sources */,
 				84DAA2AA2716B5A900E2DF4B /* JBubbleTips+Action.m in Sources */,
 				816B13F426BA63BE00FE8CA8 /* KMPlaceholderTextView.swift in Sources */,
 				81F9E42926B7D22C001C8998 /* CornerContainerView.swift in Sources */,
+				846235CB27605BF400F64C2D /* BRAddressPickerView.m in Sources */,
+				846235C327605BF400F64C2D /* BRDatePickerView+BR.m in Sources */,
+				846235C927605BF400F64C2D /* NSBundle+BRPickerView.m in Sources */,
+				846235C227605BF400F64C2D /* BRStringPickerView.m in Sources */,
 				84DAA2A62716B5A900E2DF4B /* JBubbleTips.m in Sources */,
+				846235C527605BF400F64C2D /* BRDatePickerView.m in Sources */,
 				8135D2BC26C4BFCA00507B7D /* BMChineseSort.m in Sources */,
 				8421659827103E0A005AAB5A /* WLMenuView.swift in Sources */,
+				846235CA27605BF400F64C2D /* BRAddressModel.m in Sources */,
 				81F9E43326B7D29E001C8998 /* WLPaddingLabel.m in Sources */,
 				816B13F326BA63BE00FE8CA8 /* WLTextView.swift in Sources */,
 				84DAA2A92716B5A900E2DF4B /* UIView+JUtils.m in Sources */,

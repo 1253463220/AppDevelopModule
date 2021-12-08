@@ -13,12 +13,28 @@ import UIKit
     var scroV = UIScrollView()
     private var contentV = UIView()
     var baseStackV = UIStackView()
-    private var contentEdge = UIEdgeInsets.zero
+    var contentEdge = UIEdgeInsets.zero{
+        didSet{
+            self.edgeConstraints.forEach {cons in
+                contentV.removeConstraint(cons)
+            }
+            self.edgeConstraints = [
+                baseStackV.topAnchor.constraint(equalTo: self.contentV.topAnchor, constant: contentEdge.top),
+                baseStackV.leftAnchor.constraint(equalTo: self.contentV.leftAnchor, constant: contentEdge.left),
+                baseStackV.bottomAnchor.constraint(equalTo: self.contentV.bottomAnchor, constant: -contentEdge.bottom),
+                baseStackV.rightAnchor.constraint(equalTo: self.contentV.rightAnchor, constant: -contentEdge.right)
+            ]
+            NSLayoutConstraint.activate(self.edgeConstraints)
+        }
+    }
     var itemSpace : CGFloat = 0{
         didSet{
             self.baseStackV.spacing = itemSpace
         }
     }
+    private var edgeConstraints = [NSLayoutConstraint]()
+    
+    var items = [UIView]()
         
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -61,12 +77,13 @@ import UIKit
         ])
         
         baseStackV.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+        edgeConstraints = [
             baseStackV.topAnchor.constraint(equalTo: self.contentV.topAnchor, constant: contentEdge.top),
             baseStackV.leftAnchor.constraint(equalTo: self.contentV.leftAnchor, constant: contentEdge.left),
             baseStackV.bottomAnchor.constraint(equalTo: self.contentV.bottomAnchor, constant: -contentEdge.bottom),
             baseStackV.rightAnchor.constraint(equalTo: self.contentV.rightAnchor, constant: -contentEdge.right)
-        ])
+        ]
+        NSLayoutConstraint.activate(edgeConstraints)
         baseStackV.spacing = itemSpace
         
     }
@@ -74,12 +91,20 @@ import UIKit
     func add(views:[UIView]){
         for (_,tview) in views.enumerated() {
             baseStackV.addArrangedSubview(tview)
+            items.append(tview)
         }
     }
     
     func clearContent(){
+        items.removeAll()
         for subV in baseStackV.subviews {
             subV.removeFromSuperview()
+        }
+    }
+    
+    func enumItemWith(act:(Int,UIView)->Void){
+        for (index,itemV) in self.items.enumerated() {
+            act(index,itemV)
         }
     }
 

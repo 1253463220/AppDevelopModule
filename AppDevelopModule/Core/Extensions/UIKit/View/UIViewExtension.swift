@@ -175,10 +175,8 @@ fileprivate var loadingKey = "loadingKey"
             loadingV.color = color
             loadingV.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                loadingV.topAnchor.constraint(equalTo: self.topAnchor),
-                loadingV.leftAnchor.constraint(equalTo: self.leftAnchor),
-                loadingV.rightAnchor.constraint(equalTo: self.rightAnchor),
-                loadingV.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+                loadingV.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                loadingV.centerYAnchor.constraint(equalTo: self.centerYAnchor)
             ])
             loadingV.startAnimating()
         }else{
