@@ -8,7 +8,6 @@
 
 import UIKit
 import AppDevelopModule
-import SnapKit
 
 class ViewController: UIViewController {
     

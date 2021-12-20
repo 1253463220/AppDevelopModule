@@ -122,7 +122,7 @@ public class WLMenuView: WLScroContentView {
             self.scroV.setContentOffset(CGPoint.init(x: x, y: 0), animated: false)
         }
         if animated {
-            UIView.animate(withDuration: 0.2, delay: 0.05, options: .curveEaseIn) {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
                 act()
             } completion: { isCom in
                 
