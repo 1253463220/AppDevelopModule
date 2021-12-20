@@ -6,6 +6,7 @@ inhibit_all_warnings!
 target 'AppDevelopExample' do
 #pod 'AppDevelopModule', :git => 'https://github.com/1253463220/AppDevelopModule.git'
 pod 'AppDevelopModule', :path => ".."
+pod 'SnapKit'
 #pod 'AppDevelopModule'
 #pod 'QMUIKit/QMUIComponents/QMUIBadge'
 #pod 'QMUIKit/QMUIComponents/QMUIEmptyView'

@@ -2,7 +2,7 @@
 //  WLMenuView.swift
 //  BteHotel
 //
-//  Created by Admin on 2021/9/25.
+//  Created by 王立 on 2021/9/25.
 //  Copyright © 2021 https://www.clouderwork.com. All rights reserved.
 //
 
@@ -82,8 +82,8 @@ public class WLMenuView: WLScroContentView {
         guard let index = index,index != selectedIndex else {return}
         guard index >= 0,index < itemArr.count else {return}
         
+        let itemV = self.itemArr[index]
         let act : (()->Void) = {
-            let itemV = self.itemArr[index]
             let shouldContinue = self.indexWillChanged?(index, itemV) ?? true
             if shouldContinue {
                 if self.selectedItemV != nil {
@@ -94,27 +94,42 @@ public class WLMenuView: WLScroContentView {
                 self.indexDidChanged?(index,itemV)
                 self.selectedItemV?.selectUIConfig(itemV)
                 self.indicatorIndexChangeAct?(index,itemV,self,self.indicatorV)
-                self.centerItem(itemV: itemV)
             }
         }
         
         if animated {
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: 0.2) {
                 act()
+            } completion: { isCom in
+                self.centerItem(itemV: itemV,animated: true)
             }
+
         }else{
             act()
+            self.centerItem(itemV: itemV,animated: false)
         }
         
     }
     
-    private func centerItem(itemV:WLMenuItemView){
-        let position = itemV.convert(CGPoint.init(x: itemV.frame.width/2, y: 0), to: self)
-        let space = self.frame.width/2-position.x
-        var x = self.scroV.contentOffset.x-space
-        x = max(0, x)
-        x = min(self.scroV.contentSize.width-self.scroV.frame.width, x)
-        self.scroV.setContentOffset(CGPoint.init(x: x, y: 0), animated: false)
+    private func centerItem(itemV:WLMenuItemView,animated:Bool){
+        
+        let act = {
+            let position = itemV.convert(CGPoint.init(x: itemV.frame.width/2, y: 0), to: self)
+            let space = self.frame.width/2-position.x
+            var x = self.scroV.contentOffset.x-space
+            x = max(0, x)
+            x = min(self.scroV.contentSize.width-self.scroV.frame.width, x)
+            self.scroV.setContentOffset(CGPoint.init(x: x, y: 0), animated: false)
+        }
+        if animated {
+            UIView.animate(withDuration: 0.2, delay: 0.05, options: .curveEaseIn) {
+                act()
+            } completion: { isCom in
+                
+            }
+        }else{
+            act()
+        }
     }
     
     // MARK: 代理
@@ -213,7 +228,7 @@ public class WLMultipleChooseView: WLScroContentView {
         }
         
         if animated {
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: 0.2) {
                 act()
             }
         }else{
