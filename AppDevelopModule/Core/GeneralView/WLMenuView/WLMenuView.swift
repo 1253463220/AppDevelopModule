@@ -94,17 +94,27 @@ public class WLMenuView: WLScroContentView {
                 self.indexDidChanged?(index,itemV)
                 self.selectedItemV?.selectUIConfig(itemV)
                 self.indicatorIndexChangeAct?(index,itemV,self,self.indicatorV)
+                self.centerItem(itemV: itemV)
             }
         }
         
         if animated {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: 0.25) {
                 act()
             }
         }else{
             act()
         }
         
+    }
+    
+    private func centerItem(itemV:WLMenuItemView){
+        let position = itemV.convert(CGPoint.init(x: itemV.frame.width/2, y: 0), to: self)
+        let space = self.frame.width/2-position.x
+        var x = self.scroV.contentOffset.x-space
+        x = max(0, x)
+        x = min(self.scroV.contentSize.width-self.scroV.frame.width, x)
+        self.scroV.setContentOffset(CGPoint.init(x: x, y: 0), animated: false)
     }
     
     // MARK: 代理
@@ -203,7 +213,7 @@ public class WLMultipleChooseView: WLScroContentView {
         }
         
         if animated {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: 0.25) {
                 act()
             }
         }else{
