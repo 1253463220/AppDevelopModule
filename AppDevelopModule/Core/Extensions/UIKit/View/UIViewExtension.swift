@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 fileprivate var key = "badgeLabel"
-@objc extension UIView {
+@objc public extension UIView {
     ///加消息小圆点,offset以右上角顶点为中心
     public func showBadgePoint(pWidth:CGFloat = 5,offset:CGPoint = CGPoint(x: 0, y: 0),color:UIColor = UIColor.red){
         let point = CALayer()
@@ -45,7 +45,7 @@ fileprivate var key = "badgeLabel"
 //圆角
 @objc extension UIView{
     ///指定位置的圆角
-    func clipLayerRadius(radius:CGFloat,corner:UIRectCorner){
+    public func clipLayerRadius(radius:CGFloat,corner:UIRectCorner){
         self.superview?.layoutIfNeeded()
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: radius, height: radius))
         let maskLayer = CAShapeLayer()
@@ -60,7 +60,7 @@ fileprivate var key = "badgeLabel"
 
 @objc extension UIScrollView {
     /// 截长屏Image
-    var captureLongImage: UIImage? {
+    @objc public var captureLongImage: UIImage? {
         var image: UIImage? = nil
         let savedContentOffset = contentOffset
         let savedFrame = layer.frame
@@ -81,7 +81,7 @@ fileprivate var key = "badgeLabel"
 
 @objc extension UIView {
     /// 截长屏Image
-    @objc var captureImage: UIImage? {
+    public var captureImage: UIImage? {
         var image: UIImage? = nil
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
         layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -91,15 +91,15 @@ fileprivate var key = "badgeLabel"
     }
 }
 
+@objc public enum WLGradientColorDirection : Int{
+    case leftright = 0
+    case topdown = 1
+}
+
 // 给视图添加渐变色layer
-extension UIView {
-    enum GradientColorDirection {
-        case leftright
-        case topdown
-    }
-    
+public extension UIView {
     ///加渐变色背景
-    func addGradientColorLayer(startColor:UIColor,endColor:UIColor,direction:GradientColorDirection, colorSize:CGSize){
+    public func addGradientColorLayer(startColor:UIColor,endColor:UIColor,direction:WLGradientColorDirection, colorSize:CGSize){
         let layer = CAGradientLayer()
         layer.frame = CGRect.init(x: 0, y: 0, width: colorSize.width, height: colorSize.height)
         layer.colors = [startColor.cgColor,endColor.cgColor]
@@ -115,7 +115,7 @@ extension UIView {
         self.layer.insertSublayer(layer, at: 0)
     }
     
-    func removeGradientColorLayer(){
+    public func removeGradientColorLayer(){
         if self.layer.sublayers != nil{
             for layer in self.layer.sublayers! {
                 if layer is CAGradientLayer{
@@ -128,9 +128,9 @@ extension UIView {
 }
 
 //scale动画
-@objc extension UIView{
+@objc public extension UIView{
     ///scales:缩放比例数组
-    @objc func addBounceAnnimation(scales:[Double] = [0.05,1.1,0.9,1],duration:Double = 0.3) {
+    @objc public func addBounceAnnimation(scales:[Double] = [0.05,1.1,0.9,1],duration:Double = 0.3) {
         let animation = CAKeyframeAnimation.init(keyPath:"transform.scale")
         animation.values = scales
         animation.duration = duration
@@ -145,7 +145,7 @@ extension UIView {
     }
     
     ///弹跳动画
-    @objc func addJumpAnnimation() {
+    @objc public func addJumpAnnimation() {
         let positions = [self.center,
                          .init(x: self.center.x, y: self.center.y-self.frame.size.height*2/5),
                          self.center]
@@ -165,8 +165,8 @@ extension UIView {
 
 //Loading
 fileprivate var loadingKey = "loadingKey"
-@objc extension UIView {
-    @objc func showLoading(color:UIColor){
+@objc public extension UIView {
+    @objc public func showLoading(color:UIColor){
         let loadingView = objc_getAssociatedObject(self, &loadingKey) as? UIActivityIndicatorView
         if loadingView == nil {
             let loadingV = UIActivityIndicatorView.init(style: .white)
@@ -184,7 +184,7 @@ fileprivate var loadingKey = "loadingKey"
         }
     }
     
-    @objc func hideLoading(){
+    @objc public func hideLoading(){
         let loadingView = objc_getAssociatedObject(self, &loadingKey) as? UIActivityIndicatorView
         if loadingView != nil {
             loadingView!.stopAnimating()
@@ -192,7 +192,7 @@ fileprivate var loadingKey = "loadingKey"
     }
 }
 
-extension UIScrollView{
+public extension UIScrollView{
     public func scroToBottom(){
         if self.contentSize.height > self.frame.height {
             self.setContentOffset(CGPoint.init(x: 0, y: self.contentSize.height-self.frame.height), animated: true)

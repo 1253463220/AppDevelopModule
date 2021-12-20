@@ -81,3 +81,20 @@ import UIKit
     }
     
 }
+
+///钱字符串（元）转长整型（分）
+public extension String {
+    var cent: Int64 {
+        if isEmpty {
+            return 0
+        }
+        guard let _ = Float(self) else {
+            return 0
+        }
+        let d1 = NSDecimalNumber.init(string: self)
+        let d2 = NSDecimalNumber.init(string: "100")
+        let d3 = d1.multiplying(by: d2)
+        let value = d3.int64Value
+        return value
+    }
+}

@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-@objc public enum GradientColorDirection : Int {
-    case leftright
-    case topdown
-}
-
 // 图片
 @objc extension UIImage{
     ///纯色图片
@@ -29,7 +24,7 @@ import UIKit
     }
     
     ///两组颜色的渐变色
-    public static func gradientColorImage(_ startColor:UIColor,_ endColor:UIColor,direction:GradientColorDirection,_ size:CGSize) -> UIImage{
+    public static func gradientColorImage(_ startColor:UIColor,_ endColor:UIColor,direction:WLGradientColorDirection,_ size:CGSize) -> UIImage{
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         let con = UIGraphicsGetCurrentContext()
         let colorSpace = CGColorSpaceCreateDeviceRGB()

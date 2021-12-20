@@ -8,20 +8,20 @@
 
 import UIKit
 
-class WLMenuView: WLScroContentView {
+public class WLMenuView: WLScroContentView {
     
-    typealias IndicatorUIConfigAct = (_ index:Int?,_ itemV:WLMenuItemView?,_ menuV:WLMenuView)->UIView
-    typealias IndicatorIndexChangeAct = (_ index:Int?,_ itemV:WLMenuItemView?,_ menuV:WLMenuView,_ indicatorV:UIView?)->Void
+    public typealias IndicatorUIConfigAct = (_ index:Int?,_ itemV:WLMenuItemView?,_ menuV:WLMenuView)->UIView
+    public typealias IndicatorIndexChangeAct = (_ index:Int?,_ itemV:WLMenuItemView?,_ menuV:WLMenuView,_ indicatorV:UIView?)->Void
     private(set) var itemArr = [WLMenuItemView]()
     private(set) var defaultIndex : Int? = 0
     private(set) var selectedIndex : Int?
-    var indexWillChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Bool)?
-    var indexDidChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Void)?
+    public var indexWillChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Bool)?
+    public var indexDidChanged : ((_ index:Int,_ itemV:WLMenuItemView)->Void)?
     private var indicatorV : UIView?//指示view
     private var selectedItemV : WLMenuItemView?
     private var indicatorIndexChangeAct : IndicatorIndexChangeAct?
     // MARK: 生命周期
-    init(itemArr:[WLMenuItemView],selectedIndex:Int? = 0,itemSpace:CGFloat = 0) {
+    public init(itemArr:[WLMenuItemView],selectedIndex:Int? = 0,itemSpace:CGFloat = 0) {
         super.init(contentEdge: .zero, itemSpace: itemSpace)
         self.itemArr = itemArr
         self.defaultIndex = selectedIndex
@@ -34,7 +34,7 @@ class WLMenuView: WLScroContentView {
     }
     
     // MARK: 界面
-    func updateUI() {
+    public func updateUI() {
         UIView.performWithoutAnimation {
             self.clearContent()
             if self.selectedIndex ?? 0 >= itemArr.count {
@@ -57,13 +57,13 @@ class WLMenuView: WLScroContentView {
         }
     }
     
-    func updateMenuItems(itemArr:[WLMenuItemView],defaultIndex:Int? = 0){
+    public func updateMenuItems(itemArr:[WLMenuItemView],defaultIndex:Int? = 0){
         self.itemArr = itemArr
         self.defaultIndex = defaultIndex
         updateUI()
     }
     
-    func configIndicator(configAct:@escaping IndicatorUIConfigAct,indexChangeAct:@escaping IndicatorIndexChangeAct){
+    public func configIndicator(configAct:@escaping IndicatorUIConfigAct,indexChangeAct:@escaping IndicatorIndexChangeAct){
         guard let tSelectIndex = self.selectedIndex else {return}
         guard let tSelectItemV = self.selectedItemV else {return}
         self.indicatorV = configAct(tSelectIndex,tSelectItemV,self)
@@ -114,18 +114,18 @@ class WLMenuView: WLScroContentView {
 }
 
 
-class WLMenuItemView: UIButton {
-    typealias UIConfig = (WLMenuItemView)->Void
-    var normalUIConfig : UIConfig!
-    var selectUIConfig : UIConfig!
+open class WLMenuItemView: UIButton {
+    public typealias UIConfig = (WLMenuItemView)->Void
+    public var normalUIConfig : UIConfig!
+    public var selectUIConfig : UIConfig!
     
-    init(normalUIConfig:@escaping UIConfig,selectUIConfig:@escaping UIConfig) {
+    public init(normalUIConfig:@escaping UIConfig,selectUIConfig:@escaping UIConfig) {
         super.init(frame: .zero)
         self.normalUIConfig = normalUIConfig
         self.selectUIConfig = selectUIConfig
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 }
@@ -134,14 +134,14 @@ class WLMenuItemView: UIButton {
 
 
 ///复选视图
-class WLMultipleChooseView: WLScroContentView {
+public class WLMultipleChooseView: WLScroContentView {
     private(set) var itemArr = [WLMenuItemView]()
     private(set) var selectedIndexs = [Int]()
     var indexWillSelected : ((_ currentSelectIndex:Int,_ currentSelectItemV:WLMenuItemView)->Bool)?
     var indexEndSelected : ((_ allSelectIndexs:[Int],_ allSelectItemVs:[WLMenuItemView])->Void)?
     
     // MARK: 生命周期
-    init(itemArr:[WLMenuItemView],selectedIndexs:[Int] = [],itemSpace:CGFloat = 0) {
+    public init(itemArr:[WLMenuItemView],selectedIndexs:[Int] = [],itemSpace:CGFloat = 0) {
         super.init(contentEdge: .zero, itemSpace: itemSpace)
         self.itemArr = itemArr
         self.selectedIndexs = selectedIndexs
@@ -181,7 +181,7 @@ class WLMultipleChooseView: WLScroContentView {
     }
     
     // MARK: 逻辑
-    func changeSelectedIndexs(_ indexs:[Int],animated:Bool = true){
+    public func changeSelectedIndexs(_ indexs:[Int],animated:Bool = true){
         let act : (()->Void) = {
             for index in self.selectedIndexs {
                 let itemV = self.itemArr[index]

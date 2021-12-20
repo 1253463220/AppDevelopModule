@@ -69,7 +69,7 @@ iOS App开发工具集合,以Swift为主。
   
   s.subspec 'Crypto' do |ss| #加密
     ss.source_files = 'AppDevelopModule/Crypto/**/*.{h,m,swift}'
-    ss.dependency 'CryptoSwift'
+#    ss.dependency 'CryptoSwift'
     ss.dependency 'AppDevelopModule/Core'
   end
   

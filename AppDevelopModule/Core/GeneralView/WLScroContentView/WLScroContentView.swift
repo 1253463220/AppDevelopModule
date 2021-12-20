@@ -8,12 +8,12 @@
 
 import UIKit
 
-@objc class WLScroContentView: UIView {
+@objc open class WLScroContentView: UIView {
     
-    var scroV = UIScrollView()
+    public var scroV = UIScrollView()
     private var contentV = UIView()
-    var baseStackV = UIStackView()
-    var contentEdge = UIEdgeInsets.zero{
+    public var baseStackV = UIStackView()
+    public var contentEdge = UIEdgeInsets.zero{
         didSet{
             self.edgeConstraints.forEach {cons in
                 contentV.removeConstraint(cons)
@@ -27,23 +27,23 @@ import UIKit
             NSLayoutConstraint.activate(self.edgeConstraints)
         }
     }
-    var itemSpace : CGFloat = 0{
+    public var itemSpace : CGFloat = 0{
         didSet{
             self.baseStackV.spacing = itemSpace
         }
     }
     private var edgeConstraints = [NSLayoutConstraint]()
     
-    var items = [UIView]()
+    public var items = [UIView]()
         
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         self.contentEdge = .zero
         self.itemSpace = 0
         self.wl_configUI()
     }
     
-    init(contentEdge:UIEdgeInsets = .zero,itemSpace:CGFloat = 0) {
+    public init(contentEdge:UIEdgeInsets = .zero,itemSpace:CGFloat = 0) {
         super.init(frame: .zero)
         self.contentEdge = contentEdge
         self.itemSpace = itemSpace
@@ -88,21 +88,21 @@ import UIKit
         
     }
     
-    func add(views:[UIView]){
+    public func add(views:[UIView]){
         for (_,tview) in views.enumerated() {
             baseStackV.addArrangedSubview(tview)
             items.append(tview)
         }
     }
     
-    func clearContent(){
+    public func clearContent(){
         items.removeAll()
         for subV in baseStackV.subviews {
             subV.removeFromSuperview()
         }
     }
     
-    func enumItemWith(act:(Int,UIView)->Void){
+    public func enumItemWith(act:(Int,UIView)->Void){
         for (index,itemV) in self.items.enumerated() {
             act(index,itemV)
         }

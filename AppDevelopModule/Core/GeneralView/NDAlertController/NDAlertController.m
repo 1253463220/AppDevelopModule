@@ -6,7 +6,7 @@
 //  Copyright © 2017年 kmw. All rights reserved.
 //
 #import "NDAlertController.h"
-
+#import <objc/runtime.h>
 
 @implementation NDAlertAction
 
@@ -52,7 +52,7 @@
         //标题颜色
         if ([ivarName isEqualToString:@"_attributedTitle"] && self.title && self.titleColor) {
             
-            NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:self.title attributes:@{NSForegroundColorAttributeName:self.titleColor,NSFontAttributeName:mediumFont(16)}];
+            NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:self.title attributes:@{NSForegroundColorAttributeName:self.titleColor,NSFontAttributeName:[UIFont systemFontOfSize:16 weight:UIFontWeightMedium]}];
             [self setValue:attr forKey:@"attributedTitle"];
         }
         

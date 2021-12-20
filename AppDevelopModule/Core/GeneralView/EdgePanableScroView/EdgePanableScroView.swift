@@ -8,16 +8,16 @@
 
 import UIKit
 
-@objc class WLEdgePanableScroView: UIScrollView ,UIGestureRecognizerDelegate{
+@objc public class WLEdgePanableScroView: UIScrollView ,UIGestureRecognizerDelegate{
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if isEdgePan(ges: gestureRecognizer) {
             return true
         }
         return false
     }
     
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if isEdgePan(ges: gestureRecognizer) {
             return false
         }
@@ -29,7 +29,7 @@ import UIKit
         if ges == self.panGestureRecognizer {
             let panGes = ges as! UIPanGestureRecognizer
             let point = panGes.translation(in: self)
-            let locationX = panGes.location(in: self).x.truncatingRemainder(dividingBy: screenw_f)
+            let locationX = panGes.location(in: self).x.truncatingRemainder(dividingBy: UIScreen.main.bounds.size.width)
             if panGes.state == .began || panGes.state == .possible {
                 if point.x > 0 && locationX < edgeW {
                     return true

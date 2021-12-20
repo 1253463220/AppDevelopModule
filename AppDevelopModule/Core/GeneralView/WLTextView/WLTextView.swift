@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class WLTextView: KMPlaceholderTextView {
+@objc public  class WLTextView: KMPlaceholderTextView {
     
     @objc var limitTextCount : Int = -1
     ///默认false，为true时，必须同时设置minHeight和maxHeight才能生效

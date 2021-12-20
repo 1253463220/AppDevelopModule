@@ -12,7 +12,6 @@ PODS:
     - SwifterSwift
   - AppDevelopModule/Crypto (1.0.4):
     - AppDevelopModule/Core
-    - CryptoSwift
   - AppDevelopModule/Hud (1.0.4):
     - AppDevelopModule/Core
     - NVActivityIndicatorView
@@ -20,7 +19,6 @@ PODS:
     - AppDevelopModule/Core
   - AppDevelopModule/Network (1.0.4):
     - AppDevelopModule/Core
-  - CryptoSwift (1.4.0)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
@@ -55,7 +53,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - CryptoSwift
     - NVActivityIndicatorView
     - SwifterSwift
 
@@ -64,11 +61,10 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  AppDevelopModule: 8a338bff7bcecb88dddff365bb9198037af41b89
-  CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
+  AppDevelopModule: 3797349ecc587e77708348110093cf24d39eec4c
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
 PODFILE CHECKSUM: 7d3b74ccbe74f37bb9c1d095d855cc8802feed16
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.10.1
