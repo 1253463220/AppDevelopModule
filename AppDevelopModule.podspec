@@ -36,7 +36,7 @@ iOS App开发工具集合,以Swift为主。
   
   s.subspec 'Core' do |ss|
     ss.source_files = 'AppDevelopModule/Core/**/*.{h,m,swift}'
-    ss.dependency 'SwifterSwift'
+    #ss.dependency 'SwifterSwift'
   end
   
 #  s.subspec 'Picture' do |ss|
@@ -49,7 +49,7 @@ iOS App开发工具集合,以Swift为主。
   s.subspec 'Hud' do |ss|
     ss.source_files = 'AppDevelopModule/Hud/**/*.{h,m,swift}'
     ss.dependency 'AppDevelopModule/Core'
-    ss.dependency 'NVActivityIndicatorView'
+    #ss.dependency 'NVActivityIndicatorView'
   end
   
   s.subspec 'Algorithms' do |ss|

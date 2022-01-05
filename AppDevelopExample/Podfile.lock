@@ -8,67 +8,26 @@ PODS:
     - AppDevelopModule/Network (= 1.0.4)
   - AppDevelopModule/Algorithms (1.0.4):
     - AppDevelopModule/Core
-  - AppDevelopModule/Core (1.0.4):
-    - SwifterSwift
+  - AppDevelopModule/Core (1.0.4)
   - AppDevelopModule/Crypto (1.0.4):
     - AppDevelopModule/Core
   - AppDevelopModule/Hud (1.0.4):
     - AppDevelopModule/Core
-    - NVActivityIndicatorView
   - AppDevelopModule/Map (1.0.4):
     - AppDevelopModule/Core
   - AppDevelopModule/Network (1.0.4):
     - AppDevelopModule/Core
-  - NVActivityIndicatorView (5.1.1):
-    - NVActivityIndicatorView/Base (= 5.1.1)
-  - NVActivityIndicatorView/Base (5.1.1)
-  - SnapKit (5.0.1)
-  - SwifterSwift (5.2.0):
-    - SwifterSwift/AppKit (= 5.2.0)
-    - SwifterSwift/CoreAnimation (= 5.2.0)
-    - SwifterSwift/CoreGraphics (= 5.2.0)
-    - SwifterSwift/CoreLocation (= 5.2.0)
-    - SwifterSwift/Dispatch (= 5.2.0)
-    - SwifterSwift/Foundation (= 5.2.0)
-    - SwifterSwift/MapKit (= 5.2.0)
-    - SwifterSwift/SceneKit (= 5.2.0)
-    - SwifterSwift/SpriteKit (= 5.2.0)
-    - SwifterSwift/StoreKit (= 5.2.0)
-    - SwifterSwift/SwiftStdlib (= 5.2.0)
-    - SwifterSwift/UIKit (= 5.2.0)
-  - SwifterSwift/AppKit (5.2.0)
-  - SwifterSwift/CoreAnimation (5.2.0)
-  - SwifterSwift/CoreGraphics (5.2.0)
-  - SwifterSwift/CoreLocation (5.2.0)
-  - SwifterSwift/Dispatch (5.2.0)
-  - SwifterSwift/Foundation (5.2.0)
-  - SwifterSwift/MapKit (5.2.0)
-  - SwifterSwift/SceneKit (5.2.0)
-  - SwifterSwift/SpriteKit (5.2.0)
-  - SwifterSwift/StoreKit (5.2.0)
-  - SwifterSwift/SwiftStdlib (5.2.0)
-  - SwifterSwift/UIKit (5.2.0)
 
 DEPENDENCIES:
   - AppDevelopModule (from `..`)
-  - SnapKit
-
-SPEC REPOS:
-  trunk:
-    - NVActivityIndicatorView
-    - SnapKit
-    - SwifterSwift
 
 EXTERNAL SOURCES:
   AppDevelopModule:
     :path: ".."
 
 SPEC CHECKSUMS:
-  AppDevelopModule: 3797349ecc587e77708348110093cf24d39eec4c
-  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+  AppDevelopModule: 52face7b5f0aa9750190f3fc78c50e930328dcd2
 
-PODFILE CHECKSUM: ce91c8c829e13a80927708548ba63deb84d7e229
+PODFILE CHECKSUM: 05cdfe91a0c28537531850b2501d80d224dc134a
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
